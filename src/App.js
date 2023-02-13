@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import CountriesList from './components/CountriesList';
 import Country from './components/Country';
+import './App.css';
 
 function App() {
   return (

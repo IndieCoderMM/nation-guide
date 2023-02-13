@@ -1,10 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { getAll } from '../services/CountiresService';
 
-const extractData = (country) => {
-  const { name, area, capital, continents, flags, timezones } = country;
-};
-
 export const getAllCountries = createAsyncThunk(
   'countries/getAll',
   async () => {
