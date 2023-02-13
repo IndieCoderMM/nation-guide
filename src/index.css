@@ -11,11 +11,13 @@ body {
 }
 
 :root {
-  --primary: #4369b2;
+  --blue: #4369b2;
+  --dark-blue: #2f5b7d;
+  --light-blue: #afddff;
 }
 
 main {
   min-height: 100vh;
   min-height: 100dvh;
-  background-color: #333;
+  background-color: var(--blue);
 }

@@ -7,16 +7,31 @@ export const getAllCountries = createAsyncThunk(
     const res = await getAll();
     const data = await res.data;
     return data.map((country) => {
-      const { name, area, capital, continents, flags, timezones, population } =
-        country;
+      const {
+        name,
+        area,
+        capital,
+        continents,
+        region,
+        flags,
+        timezones,
+        population,
+        currencies,
+        latlng,
+        coatOfArms,
+      } = country;
       return {
         name,
         area,
         capital,
         population,
         continents,
+        currencies,
+        region,
         flags,
         timezones,
+        latlng,
+        coatOfArms,
       };
     });
   },
@@ -35,6 +50,7 @@ const countriesSlice = createSlice({
     builder.addCase(getAllCountries.fulfilled, (state, action) => {
       state.data = action.payload;
       state.status = 'success';
+      console.log('API called');
     });
   },
 });

@@ -1,16 +1,26 @@
-.homepage {
-  background-color: var(--primary);
+/* Commons  */
+.bar-item {
+  background-color: var(--light-blue);
 }
 
 .feature-item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   width: 100%;
   padding: 2rem 1rem;
   text-decoration: none;
+  background-color: var(--blue);
   color: #fff;
 }
+
+.toolbar {
+  background-color: var(--dark-blue);
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Homepage  */
 
 .main-grid {
   display: grid;
@@ -19,33 +29,45 @@
 }
 
 .grid-item {
-  display: block;
-  border: solid 1px gold;
   text-decoration: none;
   padding: 1rem;
   color: #fff;
-}
-
-.item-container {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: flex-end;
-  width: 100%;
+  text-align: right;
 }
 
 .grid-item:nth-child(4n),
 .grid-item:nth-child(4n + 1) {
-  background-color: blueviolet;
+  background-color: var(--dark-blue);
 }
 
 .frame {
   width: 100%;
-  padding: 2px;
   display: flex;
   justify-content: center;
 }
 
 .frame > img {
   width: 100px;
-  height: 60px;
+  height: 70px;
+}
+
+/* Detail Page  */
+.detail-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-list > div:nth-child(2n) {
+  background-color: var(--dark-blue);
+}
+
+.data-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem 0.5rem;
+  color: #fff;
 }

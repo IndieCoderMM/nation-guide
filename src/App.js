@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import CountriesList from './components/CountriesList';
-import Country from './components/Country';
+import CountryDetail from './components/CountryDetail';
 import './App.css';
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
     <main>
       <Routes>
         <Route path="/" element={<CountriesList />} />
-        <Route path="/country/:name" element={<Country />} />
+        <Route path="/country/:name" element={<CountryDetail />} />
       </Routes>
     </main>
   );

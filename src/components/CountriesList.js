@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { getAllCountries } from '../redux/countries';
 import CountryCard from './CountryCard';
 
@@ -11,7 +10,6 @@ const CountriesList = () => {
 
   useEffect(() => {
     if (status === 'idle') dispatch(getAllCountries());
-    console.log('Countries:', countries);
   }, [status, dispatch]);
 
   return (
@@ -27,7 +25,7 @@ const CountriesList = () => {
       )}
       <h2 className="bar-item">Stats by Country</h2>
       <div className="main-grid">
-        {countries.slice(1, 10).map((c) => (
+        {countries.slice(1).map((c) => (
           <CountryCard
             key={c.name.common}
             className="grid-item"
