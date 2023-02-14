@@ -6,6 +6,7 @@
 
 .bar-item {
   background-color: #3861ad;
+  text-transform: uppercase;
   padding: 0.25rem 1rem;
   font-size: 1.1rem;
 }
@@ -69,6 +70,19 @@
 .search-input::placeholder {
   color: #ffffff7f;
   /* font-size: 0.8em; */
+}
+
+.sorting-box {
+  background: none;
+  border: none;
+  font-family: 'Lato', sans-serif;
+  background-color: var(--dark-blue);
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.sorting-box:focus {
+  outline: none;
 }
 
 .main-grid {
