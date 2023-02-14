@@ -12,18 +12,21 @@ const CountriesList = () => {
   const status = useSelector((state) => state.status);
   const [count, setCount] = useState(11);
   const [query, setQuery] = useState('');
+  const [sorter, setSorter] = useState('area-d');
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (status === 'idle') dispatch(getAllCountries());
   }, [status, dispatch]);
 
-  const sortedCountries = [...countriesData];
-  sortedCountries.sort((a, b) => b.area - a.area);
-
   const countries = query.trim()
-    ? sortedCountries.filter((c) => c.name.common.toLowerCase().includes(query))
-    : sortedCountries;
+    ? [...countriesData].filter((c) => c.name.common.toLowerCase().includes(query))
+    : [...countriesData];
+
+  if (sorter === 'area-d') countries.sort((a, b) => b.area - a.area);
+  else if (sorter === 'area-a') countries.sort((a, b) => a.area - b.area);
+  else if (sorter === 'name-d') countries.sort((a, b) => (a.name.common > b.name.common ? 1 : -1));
+  else if (sorter === 'name-a') countries.sort((a, b) => (a.name.common < b.name.common ? 1 : -1));
 
   return (
     <section className="homepage">
@@ -57,7 +60,14 @@ const CountriesList = () => {
           flagAlt={countries[0].flags.alt}
         />
       )}
-      <h2 className="bar-item">Sorted by Area</h2>
+      <h2 className="bar-item">
+        <select value={sorter} onChange={(e) => setSorter(e.target.value)}>
+          <option value="area-d">Sort by Area ⬇</option>
+          <option value="area-a">Sort by Area ⬆</option>
+          <option value="name-d">Sort by Name ⬇</option>
+          <option value="name-a">Sort by Area ⬆</option>
+        </select>
+      </h2>
       <div className="main-grid">
         {countries.slice(1, count).map((c) => (
           <CountryCard

@@ -21,9 +21,11 @@ export const getAllCountries = createAsyncThunk(
         latlng,
         coatOfArms,
       } = country;
+
       return {
         name,
-        area,
+        // Fixing data error from API
+        area: area > 0 ? area : 61022,
         capital,
         population,
         continents,
