@@ -1,10 +1,10 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { getAll } from '../services/CountiresService';
+import CountriesService from '../services/CountiresService';
 
 export const getAllCountries = createAsyncThunk(
   'countries/getAll',
   async () => {
-    const res = await getAll();
+    const res = await CountriesService.getAll();
     const data = await res.data;
     return data.map((country) => {
       const {
@@ -49,11 +49,11 @@ const countriesSlice = createSlice({
   name: 'countries',
   initialState,
   extraReducers(builder) {
-    builder.addCase(getAllCountries.fulfilled, (state, action) => {
-      state.data = action.payload;
-      state.status = 'success';
-      console.log('API called');
-    });
+    builder.addCase(getAllCountries.fulfilled, (state, action) => ({
+      ...state,
+      data: action.payload,
+      status: 'success',
+    }));
   },
 });
 

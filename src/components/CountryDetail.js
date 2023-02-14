@@ -9,7 +9,7 @@ const CountryDetail = () => {
   const params = useParams();
   const countries = useSelector((state) => state.data);
   const country = countries.find((c) => c.name.common === params.name);
-  console.log(country);
+
   useEffect(() => window.scrollTo(0, 0), []);
 
   return (

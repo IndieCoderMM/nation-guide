@@ -1,18 +1,35 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-const CountryCard = ({ name, area, flags, className }) => {
-  return (
-    <Link to={`/country/${name.common}`} key={area} className={className}>
-      <div className="frame">
-        <img src={flags.png} alt={flags.alt} />
-      </div>
-      <div>
-        <h3>{name.common}</h3>
-        <p>{area} km²</p>
-      </div>
-    </Link>
-  );
+const CountryCard = ({
+  name, area, flagPng, flagAlt, className,
+}) => (
+  <Link to={`/country/${name.common}`} key={area} className={className}>
+    <div className="frame">
+      <img src={flagPng} alt={flagAlt} />
+    </div>
+    <div>
+      <h3>{name.common}</h3>
+      <p>{area.toString().concat(' km²')}</p>
+    </div>
+  </Link>
+);
+
+CountryCard.propTypes = {
+  name: PropTypes.string,
+  area: PropTypes.number,
+  flagPng: PropTypes.string,
+  flagAlt: PropTypes.string,
+  className: PropTypes.string,
+};
+
+CountryCard.defaultProps = {
+  name: '',
+  area: 0,
+  flagPng: '',
+  flagAlt: '',
+  className: '',
 };
 
 export default CountryCard;

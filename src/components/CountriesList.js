@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllCountries } from '../redux/countries';
 import { BsFillMicFill } from 'react-icons/bs';
 import { AiFillSetting } from 'react-icons/ai';
+import { getAllCountries } from '../redux/countries';
 import CountryCard from './CountryCard';
 
 const CountriesList = () => {
