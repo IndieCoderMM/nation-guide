@@ -1,6 +1,8 @@
 /* Commons  */
 .bar-item {
-  background-color: var(--light-blue);
+  background-color: #3861ad;
+  padding: 0.25rem 1rem;
+  font-size: 1.1rem;
 }
 
 .feature-item {
@@ -8,9 +10,15 @@
   grid-template-columns: 1fr 1fr;
   width: 100%;
   padding: 2rem 1rem;
-  text-decoration: none;
-  background-color: var(--blue);
-  color: #fff;
+  font-size: 1.2rem;
+  background-color: var(--light-blue);
+}
+
+.feature-flag {
+  width: 120px;
+  height: 70px;
+  border: solid 2px #000;
+  border-radius: 3px;
 }
 
 .toolbar {
@@ -18,6 +26,14 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
+  padding: 0.5rem;
+}
+
+.d-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
 }
 
 /* Homepage  */
@@ -31,12 +47,16 @@
 .grid-item {
   text-decoration: none;
   padding: 1rem;
-  color: #fff;
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
   justify-content: space-between;
   align-items: flex-end;
   text-align: right;
+}
+
+.grid-item h3 {
+  font-size: 1.2em;
 }
 
 .grid-item:nth-child(4n),
@@ -53,9 +73,51 @@
 .frame > img {
   width: 100px;
   height: 70px;
+  border: solid 1px #fff;
+}
+
+.btn-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.more-btn {
+  padding: 0.5rem 1rem;
+  background-color: #fcfcfd;
+  color: #36395a;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+  border-radius: 5px;
+  border: none;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
+  transition: box-shadow 0.15s, transform 0.15s;
+}
+
+.more-btn:focus {
+  box-shadow: #d6d6e7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
+}
+
+.more-btn:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.mor:active {
+  box-shadow: #d6d6e7 0 3px 7px inset;
+  transform: translateY(2px);
 }
 
 /* Detail Page  */
+.logo {
+  width: 60px;
+  height: 60px;
+}
+
 .detail-list {
   display: flex;
   flex-direction: column;
@@ -69,5 +131,5 @@
   display: flex;
   justify-content: space-between;
   padding: 1.5rem 0.5rem;
-  color: #fff;
+  font-size: 1.1rem;
 }

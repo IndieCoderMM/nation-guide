@@ -9,7 +9,7 @@ const CountryCard = ({ name, area, flags, className }) => {
       </div>
       <div>
         <h3>{name.common}</h3>
-        <p>{area}</p>
+        <p>{area} km²</p>
       </div>
     </Link>
   );

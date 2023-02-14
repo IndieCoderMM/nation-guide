@@ -8,16 +8,22 @@
 
 body {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: #fff;
 }
 
 :root {
   --blue: #4369b2;
-  --dark-blue: #2f5b7d;
-  --light-blue: #afddff;
+  --dark-blue: #3f62a4;
+  --light-blue: #5788e5;
 }
 
 main {
   min-height: 100vh;
   min-height: 100dvh;
   background-color: var(--blue);
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
 }
