@@ -2,7 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const CountryCard = ({ name, area, flagPng, flagAlt, className }) => (
+const CountryCard = ({
+  name, area, flagPng, flagAlt, className,
+}) => (
   <Link to={`/country/${name.common}`} key={area} className={className}>
     <div className="frame">
       <img src={flagPng} alt={flagAlt} />

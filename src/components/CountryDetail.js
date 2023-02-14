@@ -18,7 +18,9 @@ const CountryDetail = () => {
         <Link to="/">
           <BsFillArrowLeftSquareFill />
         </Link>
-        <p>Country Views</p>
+        <h1 className="brand">
+          <Link to="/">NationGuide</Link>
+        </h1>
         <div className="d-row">
           <BsFillMicFill />
           <AiFillSetting />
