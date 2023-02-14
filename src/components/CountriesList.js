@@ -36,7 +36,7 @@ const CountriesList = () => {
           flags={sortedCountries[0].flags}
         />
       )}
-      <h2 className="bar-item">Stats by Country</h2>
+      <h2 className="bar-item">Sort by Area</h2>
       <div className="main-grid">
         {sortedCountries.slice(1, count).map((c) => (
           <CountryCard

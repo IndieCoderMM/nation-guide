@@ -8,6 +8,7 @@
 .feature-item {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  justify-items: center;
   width: 100%;
   padding: 2rem 1rem;
   font-size: 1.2rem;
@@ -113,6 +114,26 @@
 }
 
 /* Detail Page  */
+.feature-header {
+  grid-column: 1 / -1;
+  margin: -1rem 0 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.country-title {
+  text-transform: uppercase;
+  font-size: 1.3rem;
+}
+
+.short-name {
+  background-color: var(--dark-blue);
+  border-radius: 4px;
+  font-size: 0.8rem;
+  padding: 0.25rem 0.5rem;
+}
+
 .logo {
   width: 60px;
   height: 60px;
@@ -132,4 +153,14 @@
   justify-content: space-between;
   padding: 1.5rem 0.5rem;
   font-size: 1.1rem;
+}
+
+.data-title {
+  font-size: 1.2em;
+}
+
+.data-value {
+  font-size: 1.1em;
+  display: flex;
+  gap: 0.25rem;
 }

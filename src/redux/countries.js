@@ -17,6 +17,7 @@ export const getAllCountries = createAsyncThunk(
         timezones,
         population,
         currencies,
+        altSpellings,
         latlng,
         coatOfArms,
       } = country;
@@ -27,6 +28,7 @@ export const getAllCountries = createAsyncThunk(
         population,
         continents,
         currencies,
+        altSpellings,
         region,
         flags,
         timezones,
