@@ -13,7 +13,7 @@ const DataItem = ({ title, data, unit }) => (
 
 DataItem.propTypes = {
   title: PropTypes.string,
-  data: PropTypes.string || PropTypes.number,
+  data: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   unit: PropTypes.string,
 };
 

@@ -33,7 +33,8 @@ const CountriesList = () => {
           key={sortedCountries[0].name.common}
           name={sortedCountries[0].name}
           area={sortedCountries[0].area}
-          flags={sortedCountries[0].flags}
+          flagPng={sortedCountries[0].flags.png}
+          flagAlt={sortedCountries[0].flags.alt}
         />
       )}
       <h2 className="bar-item">Sort by Area</h2>
@@ -44,7 +45,8 @@ const CountriesList = () => {
             className="grid-item"
             name={c.name}
             area={c.area}
-            flags={c.flags}
+            flagPng={c.flags.png}
+            flapAlt={c.flags.alt}
           />
         ))}
       </div>
