@@ -51,11 +51,14 @@ const countriesSlice = createSlice({
   name: 'countries',
   initialState,
   extraReducers(builder) {
-    builder.addCase(getAllCountries.fulfilled, (state, action) => ({
-      ...state,
-      data: action.payload,
-      status: 'success',
-    }));
+    builder
+      .addCase(getAllCountries.fulfilled, (state, action) => ({
+        ...state,
+        data: action.payload,
+        status: 'success',
+      }))
+      .addCase(getAllCountries.pending, (state) => ({ ...state, status: 'loading' }))
+      .addCase(getAllCountries.rejected, (state, action) => ({ ...state, status: 'error', error: action.error.message }));
   },
 });
 

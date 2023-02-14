@@ -6,6 +6,7 @@ import { BsFillMicFill } from 'react-icons/bs';
 import { AiFillSetting } from 'react-icons/ai';
 import { getAllCountries } from '../redux/countries';
 import CountryCard from './CountryCard';
+import StatusPopup from './StatusPopup';
 
 const CountriesList = () => {
   const data = useSelector((state) => state.data);
@@ -55,7 +56,19 @@ const CountriesList = () => {
           <AiFillSetting />
         </div>
       </div>
-      {countries.length && (
+      {status === 'loading' && (
+        <StatusPopup
+          title="📡Please Wait!"
+          message="Getting data from API..."
+        />
+      )}
+      {status === 'error' && (
+        <StatusPopup
+          title="😧ops!"
+          message="There was an error! Please refresh the page."
+        />
+      )}
+      {countries.length > 0 && (
         <CountryCard
           className="feature-item"
           key={countries[0].name.common}
@@ -77,6 +90,12 @@ const CountriesList = () => {
           <option value="name-a">Sort by Area [D]</option>
         </select>
       </div>
+      {countries.length === 0 && (
+        <StatusPopup
+          title="S🙁RRY!"
+          message="We can't find the country you're looking for."
+        />
+      )}
       <div className="main-grid">
         {countries.slice(1, count).map((c) => (
           <CountryCard
