@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Popup Window should render correctly 1`] = `
+<div
+  className="status-popup"
+>
+  <h2 />
+  <p />
+</div>
+`;

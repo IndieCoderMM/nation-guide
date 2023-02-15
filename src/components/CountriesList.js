@@ -20,10 +20,12 @@ const CountriesList = () => {
     if (status === 'idle') dispatch(getAllCountries());
   }, [status, dispatch]);
 
+  // Search Feature
   const countries = query.trim()
     ? [...data].filter((c) => c.name.common.toLowerCase().includes(query))
     : [...data];
 
+  // Sort Feature
   if (sorter === 'area-d') {
     countries.sort((a, b) => b.area - a.area);
   } else if (sorter === 'area-a') {
@@ -87,7 +89,7 @@ const CountriesList = () => {
           <option value="area-d">Sort by Area [D]</option>
           <option value="area-a">Sort by Area [A]</option>
           <option value="name-d">Sort by Name [A]</option>
-          <option value="name-a">Sort by Area [D]</option>
+          <option value="name-a">Sort by Name [D]</option>
         </select>
       </div>
       {countries.length === 0 && (
