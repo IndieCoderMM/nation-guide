@@ -7,13 +7,11 @@ import CountryCard from '../components/CountryCard';
 describe('Country Card Grid Item', () => {
   it('should render correctly', async () => {
     // Arrange
-    const { asFragment } = render(
-      <CountryCard name={{ common: 'Canada' }} area={9984670} />,
-      {
-        wrapper: BrowserRouter,
-      },
-    );
+    const name = { common: 'Canada' };
     // Act
+    const { asFragment } = render(<CountryCard name={name} />, {
+      wrapper: BrowserRouter,
+    });
     await screen.findByRole('heading');
     // Assert
     expect(screen.getByRole('heading')).toHaveTextContent('Canada');

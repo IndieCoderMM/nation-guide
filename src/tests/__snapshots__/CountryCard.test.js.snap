@@ -19,7 +19,7 @@ exports[`Country Card Grid Item should render correctly 1`] = `
         Canada
       </h3>
       <p>
-        9984670 km²
+        0 km²
       </p>
     </div>
   </a>
