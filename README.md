@@ -1,47 +1,51 @@
 <a name="readme-top"></a>
 
 ## 📑 Table of Contents
-- [🌍 Nation Guide ](#-nation-guide-)
-  - [🛠 Built With ](#-built-with-)
-    - [🧰 Tech Stack ](#-tech-stack-)
-    - [🔥 Key Features ](#-key-features-)
-  - [🚀 Live Demo ](#-live-demo-)
-  - [💻 Getting Started ](#-getting-started-)
+- [🌍 Nation Guide](#-nation-guide)
+  - [🛠 Built With](#-built-with)
+    - [🧰 Tech Stack](#-tech-stack)
+    - [🔥 Key Features](#-key-features)
+  - [🚀 Live Demo](#-live-demo)
+  - [💻 Getting Started](#-getting-started)
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
     - [Install](#install)
     - [Usage](#usage)
     - [Run tests](#run-tests)
     - [Deployment](#deployment)
-  - [📧 Contact ](#-contact-)
-  - [🔭 Future Features ](#-future-features-)
-  - [🤝 Contributing ](#-contributing-)
-  - [💖 Show your support ](#-show-your-support-)
-  - [🙏 Acknowledgments ](#-acknowledgments-)
-  - [💎 Useful Resources ](#-useful-resources-)
-  - [📝 License ](#-license-)
+  - [📧 Contact](#-contact)
+  - [🔭 Future Features](#-future-features)
+  - [🤝 Contributing](#-contributing)
+  - [💖 Show your support](#-show-your-support)
+  - [🙏 Acknowledgments](#-acknowledgments)
+  - [💎 Useful Resources](#-useful-resources)
+  - [📝 License](#-license)
 
-<!-- PROJECT DESCRIPTION -->
 
-# 🌍 Nation Guide <a name="about-project"></a>
+# 🌍 Nation Guide
 
 **Nation Guide** is a dynamic web application where users can access information about countries all around the world, including their flags, areas, populations, currencies and more.
 
 ![Screenshot](app_screenshot.png)
 
-## 🛠 Built With <a name="built-with"></a>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### 🧰 Tech Stack <a name="tech-stack"></a>
+
+## 🛠 Built With
+
+### 🧰 Tech Stack
 
 - ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 - ![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
 - ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+- ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+- ![Testing-Library](https://img.shields.io/badge/-TestingLibrary-%23E33332?style=for-the-badge&logo=testing-library&logoColor=white)
 - ![Render](https://img.shields.io/badge/Render-%46E3B7.svg?style=for-the-badge&logo=render&logoColor=white)
-- [Rest Countries API](https://restcountries.com/#api-endpoints-v3-all)
 
-<!-- Features -->
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### 🔥 Key Features <a name="key-features"></a>
+
+### 🔥 Key Features
 
 - Browse comprehensive list of all countries
 - Quickly search for countries by name
@@ -52,17 +56,15 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- LIVE DEMO -->
 
-## 🚀 Live Demo <a name="live-demo"></a>
+## 🚀 Live Demo
 
-You can visit the live version of this website on [Nation Guide Webapp](nation-guide-icmm.onrender.com).
+You can visit the live version of this website on [Nation Guide Webapp](https://nation-guide-icmm.onrender.com).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- GETTING STARTED -->
 
-## 💻 Getting Started <a name="getting-started"></a>
+## 💻 Getting Started
 
 To get a local copy up and running, follow these steps.
 
@@ -114,9 +116,8 @@ This will create a production-ready build of your website in `build/` folder, wh
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- AUTHORS -->
 
-## 📧 Contact <a name="authors"></a>
+## 📧 Contact 
 
 I am always looking for ways to improve my project. If you have any suggestions or ideas, I would love to hear from you.
 
@@ -124,12 +125,10 @@ I am always looking for ways to improve my project. If you have any suggestions 
 [![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/hthantoo)
 [![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:hthant00chk@gmail.com)
 
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- FUTURE FEATURES -->
 
-## 🔭 Future Features <a name="future-features"></a>
+## 🔭 Future Features
 
 - [ ] **Add desktop UI**
 - [ ] **Include link to map**
@@ -138,9 +137,8 @@ I am always looking for ways to improve my project. If you have any suggestions 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- CONTRIBUTING -->
 
-## 🤝 Contributing <a name="contributing"></a>
+## 🤝 Contributing 
 
 I welcome any and all contributions to my website! If you have an idea for a new feature or have found a bug, please open an issue or submit a pull request.
 
@@ -148,31 +146,31 @@ Feel free to check the [issues page](../../issues/).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- SUPPORT -->
 
-## 💖 Show your support <a name="support"></a>
+## 💖 Show your support 
 
 If you like this project, please consider giving it a ⭐.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- ACKNOWLEDGEMENTS -->
 
-## 🙏 Acknowledgments <a name="acknowledgements"></a>
+## 🙏 Acknowledgments 
 
 - [Ballhead App](https://www.behance.net/gallery/31579789/Ballhead-App-(Free-PSDs)) - Original design idea by [Nelson Sakwa on Behance](https://www.behance.net/sakwadesignstudio)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 💎 Useful Resources <a name="resources"></a>
 
+## 💎 Useful Resources
+
+- [Rest Countries API](https://restcountries.com/#api-endpoints-v3-all) - Simple Restful API to get information about all countries
 - [CSS Buttons Examples](https://getcssscan.com/css-buttons-examples) - Beautiful CSS buttons
 - [MockuPhone](https://mockuphone.com/) - Mobile devices mockups generator
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-<!-- LICENSE -->
 
-## 📝 License <a name="license"></a>
+
+## 📝 License
 
 This project is [MIT](./LICENSE) licensed.
 
