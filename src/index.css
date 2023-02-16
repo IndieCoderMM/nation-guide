@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: #fff;
+}
+
+:root {
+  --blue: #4369b2;
+  --dark-blue: #3f62a4;
+  --light-blue: #5788e5;
+}
+
+main {
+  min-height: 100vh;
+  background-color: var(--blue);
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}

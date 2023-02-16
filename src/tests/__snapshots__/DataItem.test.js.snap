@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component for Displaying Data should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="data-item"
+  >
+    <h3
+      class="data-title"
+    >
+      Area
+    </h3>
+    <div
+      class="data-value"
+    >
+      <p>
+        9984670
+      </p>
+      <p />
+    </div>
+  </div>
+</DocumentFragment>
+`;

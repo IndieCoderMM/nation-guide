@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Country Card Grid Item should render correctly 1`] = `
+<DocumentFragment>
+  <a
+    class=""
+    href="/country/Canada"
+  >
+    <div
+      class="frame"
+    >
+      <img
+        alt=""
+        src=""
+      />
+    </div>
+    <div>
+      <h3>
+        Canada
+      </h3>
+      <p>
+        0 km²
+      </p>
+    </div>
+  </a>
+</DocumentFragment>
+`;
