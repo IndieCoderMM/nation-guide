@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { FiSearch } from 'react-icons/fi';
 import { BsFillMicFill } from 'react-icons/bs';
 import { AiFillSetting } from 'react-icons/ai';
 import { getAllCountries } from '../redux/countries';
 import CountryCard from './CountryCard';
-import StatusPopup from './StatusPopup';
+import SortingBox from './SortingBox';
+import SearchBox from './SearchBox';
+import DisplayStatus from './DisplayStatus';
 
 const CountriesList = () => {
   const data = useSelector((state) => state.data);
@@ -42,62 +43,24 @@ const CountriesList = () => {
         <h1 className="brand">
           <Link to="/">NationGuide</Link>
         </h1>
-        <form className="search-box" onSubmit={(e) => e.preventDefault()}>
-          <FiSearch />
-          <input
-            type="text"
-            className="search-input"
-            value={query}
-            onChange={(e) => setQuery(e.target.value.toLowerCase())}
-            placeholder="Search country by name"
-            maxLength={50}
-          />
-        </form>
+        <SearchBox query={query} setQuery={setQuery} />
         <div className="d-row">
           <BsFillMicFill />
           <AiFillSetting />
         </div>
       </div>
-      {status === 'loading' && (
-        <StatusPopup
-          title="📡Please Wait!"
-          message="Getting data from API..."
-        />
-      )}
-      {status === 'error' && (
-        <StatusPopup
-          title="😧ops!"
-          message="There was an error! Please refresh the page."
-        />
-      )}
       {countries.length > 0 && (
         <CountryCard
           className="feature-item"
-          key={countries[0].name.common}
           name={countries[0].name}
           area={countries[0].area}
           flagPng={countries[0].flags.png}
           flagAlt={countries[0].flags.alt}
         />
       )}
-      <div className="bar-item">
-        <select
-          className="sorting-box"
-          value={sorter}
-          onChange={(e) => setSorter(e.target.value)}
-        >
-          <option value="area-d">Sort by Area [D]</option>
-          <option value="area-a">Sort by Area [A]</option>
-          <option value="name-d">Sort by Name [A]</option>
-          <option value="name-a">Sort by Name [D]</option>
-        </select>
-      </div>
-      {countries.length === 0 && (
-        <StatusPopup
-          title="S🙁RRY!"
-          message="We can't find the country you're looking for."
-        />
-      )}
+      <SortingBox sorter={sorter} setSorter={setSorter} />
+      <DisplayStatus status={status} />
+      {countries.length === 0 && <DisplayStatus status="notfound" />}
       <div className="main-grid">
         {countries.slice(1, count).map((c) => (
           <CountryCard
