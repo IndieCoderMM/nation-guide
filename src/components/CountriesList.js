@@ -12,7 +12,7 @@ import DisplayStatus from './DisplayStatus';
 const CountriesList = () => {
   const data = useSelector((state) => state.data);
   const status = useSelector((state) => state.status);
-  const [count, setCount] = useState(11);
+  const [count, setCount] = useState(13);
   const [query, setQuery] = useState('');
   const [sorter, setSorter] = useState('area-d');
   const dispatch = useDispatch();
@@ -78,7 +78,7 @@ const CountriesList = () => {
           <button
             className="more-btn"
             type="button"
-            onClick={() => setCount((count) => count + 10)}
+            onClick={() => setCount((count) => count + 12)}
           >
             Load More
           </button>
