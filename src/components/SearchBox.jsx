@@ -7,7 +7,7 @@ import styles from './SearchBox.module.css';
 const SearchBox = ({ query, setQuery }) => (
   <div className={styles.container}>
     <form className={styles.form} onSubmit={(e) => e.preventDefault()}>
-      <FiSearch style={{ fontSize: '1.4em' }} />
+      <FiSearch />
       <input
         type="text"
         name="country"

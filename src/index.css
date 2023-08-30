@@ -12,17 +12,23 @@ body {
 }
 
 :root {
+  --background: #1a0c55;
+  --foreground: rgb(53, 35, 133);
+  --primary: #4f2fd0;
+  --secondary: #0e0825;
+  --light: #fcfcfd;
+
   --blue: #274590;
   --dark-blue: #0c1c4f;
   --purple: #6447cd;
   --light-green: #7fb861;
   --light-blue: #5788e5;
-  --text: #d1ddfa;
+  --text: #e0daf6;
 }
 
 main {
   min-height: 100vh;
-  background-color: var(--dark-blue);
+  background-color: var(--background);
 }
 
 a {

@@ -1,16 +1,18 @@
 .container {
   padding: 1rem;
   border-radius: 8px;
-  background-color: var(--blue);
+  background-color: var(--primary);
   margin: 1rem auto;
   width: 100%;
-  max-width: 800px;
+  max-width: 500px;
 }
 
 .form {
   display: flex;
   align-items: center;
+  width: 100%;
   padding: 0.25rem 0;
+  font-size: 1.5rem;
 }
 
 .input {
@@ -18,8 +20,8 @@
   background: none;
   padding: 0 0.5rem;
   color: var(--text);
+  font-size: 1.1rem;
   font-family: 'Lato', sans-serif;
-  font-size: 0.8em;
   text-transform: capitalize;
   border: none;
 }
@@ -31,4 +33,15 @@
 .input::placeholder {
   color: var(--text);
   opacity: 0.5;
+}
+
+.input:focus::placeholder {
+  opacity: 0.8;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 1rem 2rem;
+    margin-left: 0;
+  }
 }

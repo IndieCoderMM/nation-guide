@@ -6,6 +6,7 @@ import SearchBox from '../components/SearchBox';
 import SortingBox from '../components/SortingBox';
 import CountryCard from '../components/CountryCard';
 import { getAllCountries } from '../redux/countries';
+import Countries from '../components/Countries';
 
 const Home = () => {
   const [query, setQuery] = useState('');
@@ -21,23 +22,10 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <main className="page-container">
+      <main className="max-container">
         <SearchBox query={query} setQuery={setQuery} />
         <SortingBox sorter={sorter} setSorter={setSorter} />
-        <section>
-          <div className="main-grid">
-            {data.map((c) => (
-              <CountryCard
-                key={c.name.common}
-                className="grid-item"
-                name={c.name}
-                area={c.area}
-                flagPng={c.flags.png}
-                flapAlt={c.flags.alt}
-              />
-            ))}
-          </div>
-        </section>
+        <Countries countries={data} />
       </main>
     </>
   );

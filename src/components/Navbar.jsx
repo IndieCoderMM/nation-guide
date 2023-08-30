@@ -4,7 +4,7 @@ import styles from './Navbar.module.css';
 
 const Navbar = () => (
   <header className={styles.header}>
-    <div className={styles.container}>
+    <div className={`${styles.container} max-container`}>
       <h1>nationguide</h1>
       <button type="button" className={styles.button}>
         <BsMoonStarsFill />

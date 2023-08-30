@@ -26,13 +26,13 @@ export const getAllCountries = createAsyncThunk(
         name,
         // Fixing data error from API
         area: area > 0 ? area : 61022,
-        capital,
+        capital: capital[0],
         population,
         continents,
         currencies,
         altSpellings,
         region,
-        flags,
+        flag: flags.png,
         timezones,
         latlng,
         coatOfArms,
@@ -57,8 +57,15 @@ const countriesSlice = createSlice({
         data: action.payload,
         status: 'success',
       }))
-      .addCase(getAllCountries.pending, (state) => ({ ...state, status: 'loading' }))
-      .addCase(getAllCountries.rejected, (state, action) => ({ ...state, status: 'error', error: action.error.message }));
+      .addCase(getAllCountries.pending, (state) => ({
+        ...state,
+        status: 'loading',
+      }))
+      .addCase(getAllCountries.rejected, (state, action) => ({
+        ...state,
+        status: 'error',
+        error: action.error.message,
+      }));
   },
 });
 

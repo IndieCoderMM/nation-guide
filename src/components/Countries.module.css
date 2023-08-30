@@ -1,0 +1,20 @@
+.container {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+.item {
+  padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .item {
+    padding: 1rem 0;
+  }
+}

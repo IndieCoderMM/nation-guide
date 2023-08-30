@@ -1,7 +1,7 @@
 .header {
   width: 100%;
   padding: 1rem 0.5rem;
-  background-color: var(--blue);
+  background-color: var(--primary);
 }
 
 .container {
@@ -10,7 +10,6 @@
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
-  padding: 0.5rem;
 }
 
 .button {
@@ -22,11 +21,9 @@
   align-items: center;
   color: var(--text);
   gap: 0.5rem;
+  font-size: 1.2rem;
 }
 
-@media (min-width: 768px) {
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
+.button:hover {
+  opacity: 0.8;
 }
