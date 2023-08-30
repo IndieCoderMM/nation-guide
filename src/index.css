@@ -7,19 +7,22 @@
 }
 
 body {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  color: #fff;
+  font-family: 'Lato', sans-serif;
+  color: var(--text);
 }
 
 :root {
-  --blue: #4369b2;
-  --dark-blue: #3f62a4;
+  --blue: #274590;
+  --dark-blue: #0c1c4f;
+  --purple: #6447cd;
+  --light-green: #7fb861;
   --light-blue: #5788e5;
+  --text: #d1ddfa;
 }
 
 main {
   min-height: 100vh;
-  background-color: var(--blue);
+  background-color: var(--dark-blue);
 }
 
 a {
