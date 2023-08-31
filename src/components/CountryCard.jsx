@@ -5,10 +5,11 @@ import styles from './CountryCard.module.css';
 import { CountryType } from '../propTypes';
 
 const CountryCard = ({ name, area, flag, capital, population }) => {
+  const slug = name.toLowerCase().replace(/\s/g, '-');
   return (
     <div className={styles.card}>
       <Link
-        to={`/country/${name}`}
+        to={`/country/${slug}`}
         key={area}
         aria-label={`Go to ${name} page`}
         className={styles.link}

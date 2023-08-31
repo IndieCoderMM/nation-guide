@@ -1,10 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
-import Navbar from '../components/Navbar';
 import SearchBox from '../components/SearchBox';
 import SortingBox from '../components/SortingBox';
-import CountryCard from '../components/CountryCard';
 import { getAllCountries } from '../redux/countries';
 import Countries from '../components/Countries';
 
@@ -20,14 +17,11 @@ const Home = () => {
   }, [status, dispatch]);
 
   return (
-    <>
-      <Navbar />
-      <main className="max-container">
-        <SearchBox query={query} setQuery={setQuery} />
-        <SortingBox sorter={sorter} setSorter={setSorter} />
-        <Countries countries={data} />
-      </main>
-    </>
+    <main className="maxContainer">
+      <SearchBox query={query} setQuery={setQuery} />
+      <SortingBox sorter={sorter} setSorter={setSorter} />
+      <Countries countries={data} />
+    </main>
   );
 };
 

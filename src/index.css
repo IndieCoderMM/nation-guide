@@ -9,6 +9,12 @@
 body {
   font-family: 'Lato', sans-serif;
   color: var(--text);
+  background-color: var(--background);
+}
+
+main {
+  min-height: 100vh;
+  padding: 1rem;
 }
 
 :root {
@@ -24,11 +30,6 @@ body {
   --light-green: #7fb861;
   --light-blue: #5788e5;
   --text: #e0daf6;
-}
-
-main {
-  min-height: 100vh;
-  background-color: var(--background);
 }
 
 a {

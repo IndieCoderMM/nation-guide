@@ -20,6 +20,8 @@ export const getAllCountries = createAsyncThunk(
         altSpellings,
         latlng,
         coatOfArms,
+        maps,
+        landlocked,
       } = country;
 
       return {
@@ -33,9 +35,12 @@ export const getAllCountries = createAsyncThunk(
         altSpellings,
         region,
         flag: flags.png,
+        flagAlt: flags.alt,
         timezones,
         latlng,
         coatOfArms,
+        maps,
+        landlocked,
       };
     });
   },

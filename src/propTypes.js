@@ -24,6 +24,10 @@ export const CountryType = PropTypes.shape({
   coatOfArms: PropTypes.shape({
     png: PropTypes.string.isRequired,
   }).isRequired,
+  maps: PropTypes.shape({
+    googleMaps: PropTypes.string.isRequired,
+    openStreetMaps: PropTypes.string.isRequired,
+  }).isRequired,
 });
 
 // Sample Response

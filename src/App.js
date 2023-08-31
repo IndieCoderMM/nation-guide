@@ -4,16 +4,19 @@ import CountriesList from './components/CountriesList';
 import CountryDetail from './components/CountryDetail';
 import './App.css';
 import Home from './pages/Home';
+import Navbar from './components/Navbar';
+import Detail from './pages/Detail';
 
 function App() {
   return (
-    <main>
+    <>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/countries" element={<CountriesList />} />
-        <Route path="/country/:name" element={<CountryDetail />} />
+        <Route path="/country/:country_name" element={<Detail />} />
       </Routes>
-    </main>
+    </>
   );
 }
 
