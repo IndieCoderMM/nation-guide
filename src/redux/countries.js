@@ -22,13 +22,14 @@ export const getAllCountries = createAsyncThunk(
         coatOfArms,
         maps,
         landlocked,
+        tld,
       } = country;
 
       return {
         name,
         // Fixing data error from API
         area: area > 0 ? area : 61022,
-        capital: capital[0],
+        capital: capital[0] || 'No capital',
         population,
         continents,
         currencies,
@@ -41,6 +42,7 @@ export const getAllCountries = createAsyncThunk(
         coatOfArms,
         maps,
         landlocked,
+        tld,
       };
     });
   },

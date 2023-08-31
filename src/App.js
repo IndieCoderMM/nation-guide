@@ -13,7 +13,6 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/countries" element={<CountriesList />} />
         <Route path="/country/:country_name" element={<Detail />} />
       </Routes>
     </>

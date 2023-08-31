@@ -34,7 +34,7 @@
   opacity: 0.8;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1280px) {
   .container {
     padding: 1rem 2rem;
     margin-left: 0;

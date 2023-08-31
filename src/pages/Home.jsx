@@ -20,7 +20,7 @@ const Home = () => {
     <main className="maxContainer">
       <SearchBox query={query} setQuery={setQuery} />
       <SortingBox sorter={sorter} setSorter={setSorter} />
-      <Countries countries={data} />
+      <Countries countries={data.slice(0, 12)} />
     </main>
   );
 };

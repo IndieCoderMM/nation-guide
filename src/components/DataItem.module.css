@@ -1,0 +1,29 @@
+.container {
+  padding: 0.5rem 0;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.title {
+  font-size: 0.9em;
+  font-weight: 600;
+  opacity: 0.9;
+  text-transform: uppercase;
+}
+
+.data {
+  font-size: 1.2em;
+}
+
+@media (min-width: 1280px) {
+  .title {
+    font-size: 1.1em;
+  }
+
+  .data {
+    font-size: 1.5em;
+  }
+}
