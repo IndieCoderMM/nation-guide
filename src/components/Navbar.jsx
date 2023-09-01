@@ -16,7 +16,7 @@ const Navbar = () => (
           className={styles.button}
         >
           <BsGithub />
-          <span>View on GitHub</span>
+          <span>View Code</span>
         </a>
       </div>
     </div>

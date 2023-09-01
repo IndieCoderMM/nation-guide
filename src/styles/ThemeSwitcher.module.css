@@ -41,7 +41,7 @@
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  box-shadow: inset 16px -4px 0px 0px var(--light);
+  box-shadow: inset 16px -4px 0px 0px gold;
   background-color: var(--dark);
   transition: 0.3s;
 }

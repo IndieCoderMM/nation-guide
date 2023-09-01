@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import StatusPopup from '../components/StatusPopup';
 import DataItem from '../components/DataItem';
-import styles from './Detail.module.css';
+import styles from '../styles/Detail.module.css';
 import { TbArrowBigLeftLines } from 'react-icons/tb';
 
 const Detail = () => {
@@ -11,7 +11,7 @@ const Detail = () => {
   const countries = useSelector((state) => state.data);
   const country = countries.find(
     (country) =>
-      country.name.common.toLowerCase().replace(/\s/g, '-') === country_name,
+      country.name?.common?.toLowerCase().replace(/\s/g, '-') === country_name,
   );
 
   useEffect(() => window.scrollTo(0, 0), []);
@@ -26,6 +26,7 @@ const Detail = () => {
     );
 
   const currency = Object.keys(country.currencies)[0];
+  const nativeName = Object.keys(country.name.nativeName)[0];
 
   return (
     <main className={`${styles.container} maxContainer`}>
@@ -46,14 +47,11 @@ const Detail = () => {
           )}
           <div className={styles.group}>
             <h2>Basic Info</h2>
-            {country.name.nativeName && (
+            <DataItem title="Official Name" data={country.name?.official} />
+            {nativeName && (
               <DataItem
                 title="Native Name"
-                data={
-                  country.name.nativeName[
-                    Object.keys(country.name.nativeName)[0]
-                  ].common
-                }
+                data={country.name?.nativeName[nativeName]?.official}
               />
             )}
             <DataItem title="Population" data={country.population} />
@@ -77,12 +75,17 @@ const Detail = () => {
           />
         </div>
 
-        <div className={styles.group}>
-          <h2>Currency</h2>
-          <DataItem title="Code" data={currency} />
-          <DataItem title="Name" data={country.currencies[currency].name} />
-          <DataItem title="Symbol" data={country.currencies[currency].symbol} />
-        </div>
+        {currency ? (
+          <div className={styles.group}>
+            <h2>Currency</h2>
+            <DataItem title="Code" data={currency} />
+            <DataItem title="Name" data={country.currencies[currency].name} />
+            <DataItem
+              title="Symbol"
+              data={country.currencies[currency].symbol}
+            />
+          </div>
+        ) : null}
 
         <div className={styles.group}>
           <h2>Location</h2>
