@@ -1,15 +1,24 @@
 import React from 'react';
-import { BsMoonStarsFill } from 'react-icons/bs';
-import styles from './Navbar.module.css';
+import { BsGithub, BsMoonStarsFill } from 'react-icons/bs';
+import styles from '../styles/Navbar.module.css';
+import ThemeSwitcher from './ThemeSwitcher';
 
 const Navbar = () => (
   <header className={styles.header}>
     <div className={`${styles.container} maxContainer`}>
-      <h1>nationguide</h1>
-      <button type="button" className={styles.button}>
-        <BsMoonStarsFill />
-        <span>Dark Mode</span>
-      </button>
+      <h1 className={styles.title}>nationguide.</h1>
+      <div className={styles.buttons}>
+        <ThemeSwitcher />
+        <a
+          href="https://github.com/indiecodermm/nation-guide"
+          target="_blank"
+          rel="noreferrer"
+          className={styles.button}
+        >
+          <BsGithub />
+          <span>View on GitHub</span>
+        </a>
+      </div>
     </div>
   </header>
 );

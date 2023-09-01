@@ -18,12 +18,14 @@ main {
 }
 
 :root {
-  --background: #1a0c55;
-  --foreground: rgb(53, 35, 133);
-  --primary: #4f2fd0;
-  --secondary: #0e0825;
+  --background: #051f24;
+  --foreground: #08323a;
+  --primary: #126f81;
+  --secondary: #08323a;
+  --accent: #2dc3e1;
   --light: #fcfcfd;
-  --border: #2e1a6d;
+  --dark: #0c1c4f;
+  --border: #e0daf696;
 
   --blue: #274590;
   --dark-blue: #0c1c4f;

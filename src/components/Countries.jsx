@@ -1,5 +1,5 @@
 import { CountryType } from '../propTypes';
-import styles from './Countries.module.css';
+import styles from '../styles/Countries.module.css';
 import CountryCard from './CountryCard';
 import PropTypes from 'prop-types';
 

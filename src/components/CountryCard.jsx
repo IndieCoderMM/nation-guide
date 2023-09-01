@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import styles from './CountryCard.module.css';
-import { CountryType } from '../propTypes';
+import styles from '../styles/CountryCard.module.css';
 
 const CountryCard = ({ name, area, flag, capital, population }) => {
   const slug = name.toLowerCase().replace(/\s/g, '-');

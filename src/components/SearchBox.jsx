@@ -1,7 +1,7 @@
 import React from 'react';
 import { FiSearch } from 'react-icons/fi';
 import PropTypes from 'prop-types';
-import styles from './SearchBox.module.css';
+import styles from '../styles/SearchBox.module.css';
 
 // eslint-disable
 const SearchBox = ({ query, setQuery }) => (

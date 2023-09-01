@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './SortingBox.module.css';
+import styles from '../styles/SortingBox.module.css';
 
 // eslint-disable
 const SortingBox = ({ sorter, setSorter }) => (
