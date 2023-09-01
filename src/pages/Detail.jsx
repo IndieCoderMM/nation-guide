@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
-import StatusPopup from '../components/StatusPopup';
 import DataItem from '../components/DataItem';
 import styles from '../styles/Detail.module.css';
 import { TbArrowBigLeftLines } from 'react-icons/tb';
+import PageHolder from '../components/PageHolder';
 
 const Detail = () => {
   const { country_name } = useParams();
@@ -18,9 +18,9 @@ const Detail = () => {
 
   if (!country)
     return (
-      <StatusPopup
-        title="😧ops!"
-        message="There was an error while loading data."
+      <PageHolder
+        title="Something went wrong!"
+        message="There was an error while loading data. Please try again later."
         showHome
       />
     );

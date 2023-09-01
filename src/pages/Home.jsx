@@ -4,6 +4,8 @@ import SearchBox from '../components/SearchBox';
 import SortingBox from '../components/SortingBox';
 import { getAllCountries } from '../redux/countries';
 import Countries from '../components/Countries';
+import PageHolder from '../components/PageHolder';
+import Splash from '../components/Splash';
 
 const Home = () => {
   const [query, setQuery] = useState('');
@@ -32,11 +34,21 @@ const Home = () => {
     countries.sort((a, b) => (a.name.common < b.name.common ? 1 : -1));
   }
 
+  if (status === 'loading') {
+    return <Splash />;
+  }
   return (
     <main className="maxContainer">
       <SearchBox query={query} setQuery={setQuery} />
       <SortingBox sorter={sorter} setSorter={setSorter} />
-      <Countries countries={countries.slice(0, 12)} />
+      {countries.length === 0 ? (
+        <PageHolder
+          title={'No countries found'}
+          message={'Please try again with a different search term.'}
+        />
+      ) : (
+        <Countries countries={countries.slice(0, 12)} />
+      )}
     </main>
   );
 };
