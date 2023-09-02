@@ -6,45 +6,15 @@ export const getAllCountries = createAsyncThunk(
   async () => {
     const res = await CountriesService.getAll();
     const data = await res.data;
-    return data.map((country) => {
-      const {
-        name,
-        area,
-        capital,
-        continents,
-        region,
-        flags,
-        timezones,
-        population,
-        currencies,
-        altSpellings,
-        latlng,
-        coatOfArms,
-        maps,
-        landlocked,
-        tld,
-      } = country;
 
-      return {
-        name,
-        // Fixing data error from API
-        area: area > 0 ? area : 61022,
-        capital: capital[0] || 'No capital',
-        population,
-        continents,
-        currencies,
-        altSpellings,
-        region,
-        flag: flags.png,
-        flagAlt: flags.alt,
-        timezones,
-        latlng,
-        coatOfArms,
-        maps,
-        landlocked,
-        tld,
-      };
-    });
+    return data.map((country) => ({
+      ...country,
+      flag: country.flags.png,
+      flagAlt: country.flags.alt,
+      // Fixing data error from API
+      area: country.area > 0 ? country.area : 61022,
+      capital: country.capital[0] || 'No capital',
+    }));
   },
 );
 

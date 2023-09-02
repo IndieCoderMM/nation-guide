@@ -3,7 +3,6 @@ import { FiSearch } from 'react-icons/fi';
 import PropTypes from 'prop-types';
 import styles from '../styles/SearchBox.module.css';
 
-// eslint-disable
 const SearchBox = ({ query, setQuery }) => (
   <div className={styles.container}>
     <FiSearch />
@@ -19,7 +18,6 @@ const SearchBox = ({ query, setQuery }) => (
     />
   </div>
 );
-// eslint-enable
 
 SearchBox.propTypes = {
   query: PropTypes.string.isRequired,

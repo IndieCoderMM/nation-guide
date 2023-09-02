@@ -1,5 +1,5 @@
 import React from 'react';
-import { BsGithub, BsMoonStarsFill } from 'react-icons/bs';
+import { BsGithub } from 'react-icons/bs';
 import styles from '../styles/Navbar.module.css';
 import ThemeSwitcher from './ThemeSwitcher';
 

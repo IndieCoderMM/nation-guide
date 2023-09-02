@@ -2,9 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from '../styles/CountryCard.module.css';
+import { generateSlug } from '../lib/utils';
 
+// eslint-disable-next-line object-curly-newline
 const CountryCard = ({ name, area, flag, capital, population }) => {
-  const slug = name.toLowerCase().replace(/\s/g, '-');
+  const slug = generateSlug(name);
   return (
     <div className={styles.card}>
       <Link

@@ -4,23 +4,26 @@ export const CountryType = PropTypes.shape({
   name: PropTypes.shape({
     common: PropTypes.string.isRequired,
     official: PropTypes.string.isRequired,
+    // eslint-disable-next-line react/forbid-prop-types
     nativeName: PropTypes.object,
   }).isRequired,
-  flag: PropTypes.string.isRequired,
+  area: PropTypes.number.isRequired,
   capital: PropTypes.string,
   region: PropTypes.string.isRequired,
-  population: PropTypes.number.isRequired,
-  area: PropTypes.number.isRequired,
-  timezones: PropTypes.arrayOf(PropTypes.string).isRequired,
+  subregion: PropTypes.string.isRequired,
   continents: PropTypes.arrayOf(PropTypes.string).isRequired,
+  flag: PropTypes.string.isRequired,
+  flagAlt: PropTypes.string.isRequired,
+  population: PropTypes.number.isRequired,
+  altSpellings: PropTypes.arrayOf(PropTypes.string).isRequired,
+  timezones: PropTypes.arrayOf(PropTypes.string).isRequired,
+  latlng: PropTypes.arrayOf(PropTypes.number).isRequired,
   currencies: PropTypes.objectOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
       symbol: PropTypes.string.isRequired,
     }),
   ).isRequired,
-  altSpellings: PropTypes.arrayOf(PropTypes.string).isRequired,
-  latlng: PropTypes.arrayOf(PropTypes.number).isRequired,
   coatOfArms: PropTypes.shape({
     png: PropTypes.string.isRequired,
   }).isRequired,
@@ -29,6 +32,8 @@ export const CountryType = PropTypes.shape({
     openStreetMaps: PropTypes.string.isRequired,
   }).isRequired,
 });
+
+export const CountryListType = PropTypes.arrayOf(CountryType);
 
 // Sample Response
 // [

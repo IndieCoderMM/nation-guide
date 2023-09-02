@@ -6,7 +6,9 @@ const DataItem = ({ title, data, unit }) => (
     <h4 className={styles.title}>{title}</h4>
     <div className={styles.data}>
       <p>
-        {data}&nbsp;{unit}
+        {data}
+        &nbsp;
+        {unit}
       </p>
     </div>
   </div>

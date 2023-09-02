@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from '../styles/SortingBox.module.css';
 
-// eslint-disable
 const SortingBox = ({ sorter, setSorter }) => (
   <div className={styles.container}>
     <select
@@ -22,7 +21,5 @@ SortingBox.propTypes = {
   sorter: PropTypes.string.isRequired,
   setSorter: PropTypes.func.isRequired,
 };
-
-// eslint-enable
 
 export default SortingBox;

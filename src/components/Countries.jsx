@@ -1,30 +1,25 @@
-import { CountryType } from '../propTypes';
-import styles from '../styles/Countries.module.css';
 import CountryCard from './CountryCard';
-import PropTypes from 'prop-types';
+import styles from '../styles/Countries.module.css';
+import { CountryListType } from '../propTypes';
 
-// eslint-disable
-const Countries = ({ countries }) => {
-  return (
-    <section className={styles.container}>
-      {countries.map((country) => (
-        <div key={country.name.common} className={styles.item}>
-          <CountryCard
-            name={country.name.common}
-            area={country.area}
-            flag={country.flag}
-            capital={country.capital}
-            population={country.population}
-          />
-        </div>
-      ))}
-    </section>
-  );
-};
-// eslint-enable
+const Countries = ({ countries }) => (
+  <section className={styles.container}>
+    {countries.map((country) => (
+      <div key={country.name.common} className={styles.item}>
+        <CountryCard
+          name={country.name.common}
+          area={country.area}
+          flag={country.flag}
+          capital={country.capital}
+          population={country.population}
+        />
+      </div>
+    ))}
+  </section>
+);
 
 Countries.propTypes = {
-  countries: PropTypes.arrayOf(CountryType).isRequired,
+  countries: CountryListType.isRequired,
 };
 
 export default Countries;
