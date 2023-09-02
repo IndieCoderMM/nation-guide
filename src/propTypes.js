@@ -12,8 +12,10 @@ export const CountryType = PropTypes.shape({
   region: PropTypes.string.isRequired,
   subregion: PropTypes.string.isRequired,
   continents: PropTypes.arrayOf(PropTypes.string).isRequired,
-  flag: PropTypes.string.isRequired,
-  flagAlt: PropTypes.string.isRequired,
+  flag: PropTypes.shape({
+    png: PropTypes.string.isRequired,
+    alt: PropTypes.string.isRequired,
+  }).isRequired,
   population: PropTypes.number.isRequired,
   altSpellings: PropTypes.arrayOf(PropTypes.string).isRequired,
   timezones: PropTypes.arrayOf(PropTypes.string).isRequired,

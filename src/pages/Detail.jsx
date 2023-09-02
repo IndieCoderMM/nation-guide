@@ -7,6 +7,7 @@ import DataItem from '../components/DataItem';
 import styles from '../styles/Detail.module.css';
 import PageHolder from '../components/PageHolder';
 import { generateSlug } from '../lib/utils';
+import InfoGroup from '../components/InfoGroup';
 
 const Detail = () => {
   const { country_name: name } = useParams();
@@ -37,9 +38,9 @@ const Detail = () => {
       <div className={styles.hero}>
         <img
           className={styles.flag}
-          src={country.flag}
+          src={country.flag.png}
           alt={
-            country.flagAlt ? country.flagAlt : `${country.name.common} flag`
+            country.flag.alt ? country.flag.alt : `${country.name.common} flag`
           }
         />
         <div className={styles.topSection}>
@@ -48,8 +49,7 @@ const Detail = () => {
               <img src={country.coatOfArms.png} alt="Coat of Arms" />
             </div>
           )}
-          <div className={styles.group}>
-            <h2>Basic Info</h2>
+          <InfoGroup title="Basic">
             <DataItem title="Official Name" data={country.name?.official} />
             {nativeName && (
               <DataItem
@@ -57,13 +57,11 @@ const Detail = () => {
                 data={country.name?.nativeName[nativeName]?.official}
               />
             )}
-          </div>
+          </InfoGroup>
         </div>
       </div>
       <section className={styles.grid}>
-        <div className={styles.group}>
-          <h2>Geographic Details</h2>
-
+        <InfoGroup title="Geographic Details">
           {country.capital && (
             <DataItem title="Capital" data={country.capital} />
           )}
@@ -74,17 +72,14 @@ const Detail = () => {
             title="Landlocked"
             data={country.landlocked ? 'Yes' : 'No'}
           />
-        </div>
+        </InfoGroup>
 
-        <div className={styles.group}>
-          <h2>Demographics</h2>
-
+        <InfoGroup title="Demographics">
           <DataItem title="Area" data={country.area} unit="km²" />
           <DataItem title="Population" data={country.population} />
-        </div>
+        </InfoGroup>
 
-        <div className={styles.group}>
-          <h2>Location</h2>
+        <InfoGroup title="Location">
           <DataItem title="Timezone" data={country.timezones[0]} />
           <DataItem title="Latitude" data={country.latlng[0]} unit="&#176;" />
           <DataItem title="Longitude" data={country.latlng[1]} unit="&#176;" />
@@ -97,25 +92,23 @@ const Detail = () => {
           >
             View in Google Maps
           </a>
-        </div>
+        </InfoGroup>
 
         {currency ? (
-          <div className={styles.group}>
-            <h2>Currency</h2>
+          <InfoGroup title="Currency">
             <DataItem title="Code" data={currency} />
             <DataItem title="Name" data={country.currencies[currency].name} />
             <DataItem
               title="Symbol"
               data={country.currencies[currency].symbol}
             />
-          </div>
+          </InfoGroup>
         ) : null}
 
-        <div className={styles.group}>
-          <h2>More Information</h2>
+        <InfoGroup title="More Info">
           <DataItem title="Top Level Domain" data={country.tld?.join(',')} />
           <DataItem title="Spellings" data={country.altSpellings[0]} />
-        </div>
+        </InfoGroup>
       </section>
       <Link to="/" className={styles.back} aria-label="back to home">
         <TbArrowBigLeftLines />

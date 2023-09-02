@@ -16,12 +16,7 @@ const CountryCard = ({ name, area, flag, capital, population }) => {
         className={styles.link}
       />
       <div className={styles.frame}>
-        <img
-          src={flag}
-          alt={`
-          Flag of ${name}
-        `}
-        />
+        <img src={flag.png} alt={flag.alt} />
       </div>
       <section className={styles.body}>
         <header>
@@ -49,7 +44,10 @@ const CountryCard = ({ name, area, flag, capital, population }) => {
 CountryCard.propTypes = {
   name: PropTypes.string.isRequired,
   area: PropTypes.number.isRequired,
-  flag: PropTypes.string.isRequired,
+  flag: PropTypes.shape({
+    png: PropTypes.string.isRequired,
+    alt: PropTypes.string.isRequired,
+  }).isRequired,
   capital: PropTypes.string.isRequired,
   population: PropTypes.number.isRequired,
 };

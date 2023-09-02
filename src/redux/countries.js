@@ -9,8 +9,7 @@ export const getAllCountries = createAsyncThunk(
 
     return data.map((country) => ({
       ...country,
-      flag: country.flags.png,
-      flagAlt: country.flags.alt,
+      flag: { png: country.flags.png, alt: country.flags.alt },
       // Fixing data error from API
       area: country.area > 0 ? country.area : 61022,
       capital: country.capital[0] || 'No capital',
