@@ -1,12 +1,15 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import styles from '../styles/DataItem.module.css';
 
 const DataItem = ({ title, data, unit }) => (
-  <div className="data-item">
-    <h3 className="data-title">{title}</h3>
-    <div className="data-value">
-      <p>{data}</p>
-      <p>{unit}</p>
+  <div className={styles.container}>
+    <h4 className={styles.title}>{title}</h4>
+    <div className={styles.data}>
+      <p>
+        {data}
+        &nbsp;
+        {unit}
+      </p>
     </div>
   </div>
 );

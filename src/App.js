@@ -1,17 +1,21 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import CountriesList from './components/CountriesList';
-import CountryDetail from './components/CountryDetail';
-import './App.css';
+
+import Home from './pages/Home';
+import Navbar from './components/Navbar';
+import Detail from './pages/Detail';
+import Footer from './components/Footer';
 
 function App() {
   return (
-    <main>
+    <>
+      <Navbar />
       <Routes>
-        <Route path="/" element={<CountriesList />} />
-        <Route path="/country/:name" element={<CountryDetail />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/country/:country_name" element={<Detail />} />
       </Routes>
-    </main>
+      <Footer />
+    </>
   );
 }
 

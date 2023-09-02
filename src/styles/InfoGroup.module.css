@@ -1,0 +1,27 @@
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem 1rem 2rem;
+  border-radius: 8px;
+  background-color: var(--foreground);
+}
+
+.title {
+  text-transform: capitalize;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+@media (min-width: 1280px) {
+  .group {
+    padding: 2rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+}

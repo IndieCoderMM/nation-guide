@@ -1,19 +1,22 @@
 import React from 'react';
 import { FiSearch } from 'react-icons/fi';
 import PropTypes from 'prop-types';
+import styles from '../styles/SearchBox.module.css';
 
 const SearchBox = ({ query, setQuery }) => (
-  <form className="search-box" onSubmit={(e) => e.preventDefault()}>
+  <div className={styles.container}>
     <FiSearch />
     <input
       type="text"
-      className="search-input"
+      name="country"
+      aria-label="Search country by name"
+      className={styles.input}
       value={query}
       onChange={(e) => setQuery(e.target.value.toLowerCase())}
       placeholder="Search country by name"
-      maxLength={50}
+      maxLength={80}
     />
-  </form>
+  </div>
 );
 
 SearchBox.propTypes = {

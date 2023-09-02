@@ -1,0 +1,53 @@
+.container {
+  display: block;
+  position: relative;
+  width: 70px;
+  height: 40px;
+}
+
+.toggle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background-color: var(--dark);
+  border-radius: 100px;
+  cursor: pointer;
+}
+
+.checkbox {
+  position: absolute;
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+  transition: 0.3s;
+}
+
+.checkbox:checked ~ .slider {
+  background-color: var(--light);
+}
+
+.slider::before {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 6px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  box-shadow: inset 16px -4px 0 0 gold;
+  background-color: var(--dark);
+  transition: 0.3s;
+}
+
+.checkbox:checked ~ .slider::before {
+  transform: translateX(26px);
+  background-color: orange;
+  box-shadow: none;
+}
