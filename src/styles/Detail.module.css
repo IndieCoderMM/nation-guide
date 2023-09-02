@@ -1,0 +1,122 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 1rem 0 2rem;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.flag {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  aspect-ratio: 3/2;
+}
+
+.shield {
+  width: 200px;
+  height: auto;
+  aspect-ratio: 1/1;
+  padding: 1rem;
+  border-radius: 12px;
+  place-self: center;
+}
+
+.shield img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.topSection {
+  background-color: var(--foreground);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 12px;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.stack > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.grid {
+  display: grid;
+  width: 100%;
+  gap: 1rem;
+}
+
+.back {
+  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: var(--foreground);
+  color: var(--text);
+  border: solid 1px var(--border);
+  border-radius: 8px;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  font-size: 2em;
+  transition: all 0.2s ease-in;
+  cursor: pointer;
+}
+
+.back:hover {
+  background-color: var(--primary);
+  color: var(--light);
+  transform: translateY(-2px);
+}
+
+.separator {
+  width: 100%;
+  height: 1px;
+  background-color: var(--border);
+  margin: 1.5rem 0;
+}
+
+@media (min-width: 1280px) {
+  .hero {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .title {
+    font-size: 3rem;
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .shield {
+    width: 300px;
+  }
+
+  .topSection {
+    grid-column: span 2;
+    flex-direction: row;
+    padding-left: 2rem;
+  }
+}

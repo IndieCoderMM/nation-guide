@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from '../styles/SortingBox.module.css';
 
 const SortingBox = ({ sorter, setSorter }) => (
-  <div className="bar-item">
+  <div className={styles.container}>
     <select
-      className="sorting-box"
+      className={styles.select}
       value={sorter}
       onChange={(e) => setSorter(e.target.value)}
     >
@@ -15,6 +16,7 @@ const SortingBox = ({ sorter, setSorter }) => (
     </select>
   </div>
 );
+
 SortingBox.propTypes = {
   sorter: PropTypes.string.isRequired,
   setSorter: PropTypes.func.isRequired,

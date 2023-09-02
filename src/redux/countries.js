@@ -6,38 +6,14 @@ export const getAllCountries = createAsyncThunk(
   async () => {
     const res = await CountriesService.getAll();
     const data = await res.data;
-    return data.map((country) => {
-      const {
-        name,
-        area,
-        capital,
-        continents,
-        region,
-        flags,
-        timezones,
-        population,
-        currencies,
-        altSpellings,
-        latlng,
-        coatOfArms,
-      } = country;
 
-      return {
-        name,
-        // Fixing data error from API
-        area: area > 0 ? area : 61022,
-        capital,
-        population,
-        continents,
-        currencies,
-        altSpellings,
-        region,
-        flags,
-        timezones,
-        latlng,
-        coatOfArms,
-      };
-    });
+    return data.map((country) => ({
+      ...country,
+      flag: { png: country.flags.png, alt: country.flags.alt },
+      // Fixing data error from API
+      area: country.area > 0 ? country.area : 61022,
+      capital: country.capital[0] || 'No capital',
+    }));
   },
 );
 
@@ -57,8 +33,15 @@ const countriesSlice = createSlice({
         data: action.payload,
         status: 'success',
       }))
-      .addCase(getAllCountries.pending, (state) => ({ ...state, status: 'loading' }))
-      .addCase(getAllCountries.rejected, (state, action) => ({ ...state, status: 'error', error: action.error.message }));
+      .addCase(getAllCountries.pending, (state) => ({
+        ...state,
+        status: 'loading',
+      }))
+      .addCase(getAllCountries.rejected, (state, action) => ({
+        ...state,
+        status: 'error',
+        error: action.error.message,
+      }));
   },
 });
 

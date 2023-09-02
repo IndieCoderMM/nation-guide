@@ -1,27 +1,62 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Country Card Grid Item should render correctly 1`] = `
+exports[`CountryCard Component renders the component with correct data 1`] = `
 <DocumentFragment>
-  <a
-    class=""
-    href="/country/Canada"
+  <div
+    class="card"
   >
+    <a
+      aria-label="Go to Japan page"
+      class="link"
+      href="/country/japan"
+    />
     <div
       class="frame"
     >
       <img
-        alt=""
-        src=""
+        alt="The flag of Japan features a crimson-red circle at the center of a white field."
+        src="https://flagcdn.com/w320/jp.png"
       />
     </div>
-    <div>
-      <h3>
-        Canada
-      </h3>
-      <p>
-        0 km²
-      </p>
-    </div>
-  </a>
+    <section
+      class="body"
+    >
+      <header>
+        <h2
+          class="name"
+        >
+          Japan
+        </h2>
+      </header>
+      <div
+        class="infoBox"
+      >
+        <div>
+          <h3>
+            Capital: 
+          </h3>
+          <p>
+            Tokyo
+          </p>
+        </div>
+        <div>
+          <h3>
+            Area: 
+          </h3>
+          <p>
+            377930 km²
+          </p>
+        </div>
+        <div>
+          <h3>
+            Population: 
+          </h3>
+          <p>
+            125836021
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
 </DocumentFragment>
 `;

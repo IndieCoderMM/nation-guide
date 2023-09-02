@@ -1,11 +1,13 @@
 <a name="readme-top"></a>
 
-## 📑 Table of Contents
-- [🌍 Nation Guide](#-nation-guide)
+<details> 
+  <summary>Table of Contents</summary>
+
+- [🌍 Nation Guide - Country Information Webapp](#-nation-guide---country-information-webapp)
+  - [🚀 Visit Website](#-visit-website)
   - [🛠 Built With](#-built-with)
     - [🧰 Tech Stack](#-tech-stack)
     - [🔥 Key Features](#-key-features)
-  - [🚀 Live Demo](#-live-demo)
   - [💻 Getting Started](#-getting-started)
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
@@ -21,12 +23,27 @@
   - [💎 Useful Resources](#-useful-resources)
   - [📝 License](#-license)
 
+</details>
 
-# 🌍 Nation Guide
+# 🌍 Nation Guide - Country Information Webapp
 
-**Nation Guide** is a dynamic web application where users can access information about countries all around the world, including their flags, areas, populations, currencies and more.
+[![Version](https://img.shields.io/github/package-json/v/indiecodermm/nation-guide)](https://github.com/indiecodermm/nation-guide)
+[![License](https://img.shields.io/github/license/indiecodermm/nation-guide)](https://github.com/indiecodermm/nation-guide/blob/main/LICENSE)
+[![Last Commit](https://img.shields.io/github/last-commit/indiecodermm/nation-guide)](https://github.com/indiecodermm/nation-guide/commits)
 
-![Screenshot](app_screenshot.png)
+
+**Nation Guide** is an interactive web application designed to provide users with comprehensive information about countries from around the world. Users can browse through a list of all countries, search for specific countries, and view detailed information about each country. The app is built using React and Redux, and is fully responsive for mobile devices.
+
+<img src="./app_screenshot.png" alt="Homepage screenshot" width=480 height=auto >
+<img src="./app_screenshot1.png" alt="Detailpage screenshot" width=480 height=auto >
+<img src="./phone_mockup.png" alt="Phone Mockups" width=480 height=auto >
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+## 🚀 Visit Website
+
+Experience the live version of this website at [Nation Guide Webapp](https://nation-guide-icmm.onrender.com).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -38,8 +55,9 @@
 - ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 - ![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
 - ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
-- ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+- ![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
 - ![Testing-Library](https://img.shields.io/badge/-TestingLibrary-%23E33332?style=for-the-badge&logo=testing-library&logoColor=white)
+- ![Jest](https://img.shields.io/badge/-Jest-%23C21325?style=for-the-badge&logo=jest&logoColor=white)
 - ![Render](https://img.shields.io/badge/Render-%46E3B7.svg?style=for-the-badge&logo=render&logoColor=white)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -53,13 +71,6 @@
 - View detailed information on each country
 - Up-to-date data powered by REST Countries API
 - Design optimized for mobile devices
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-## 🚀 Live Demo
-
-You can visit the live version of this website on [Nation Guide Webapp](https://nation-guide-icmm.onrender.com).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -130,8 +141,9 @@ I am always looking for ways to improve my project. If you have any suggestions 
 
 ## 🔭 Future Features
 
-- [ ] **Add desktop UI**
-- [ ] **Include link to map**
+- [x] **Add desktop UI**
+- [x] **Include link to map**
+- [x] **Dark/Light mode**
 - [ ] **User authentication**
 - [ ] **Favorite countries**
 
@@ -163,9 +175,8 @@ If you like this project, please consider giving it a ⭐.
 
 ## 💎 Useful Resources
 
-- [Rest Countries API](https://restcountries.com/#api-endpoints-v3-all) - Simple Restful API to get information about all countries
-- [CSS Buttons Examples](https://getcssscan.com/css-buttons-examples) - Beautiful CSS buttons
-- [MockuPhone](https://mockuphone.com/) - Mobile devices mockups generator
+- [Rest Countries API](https://restcountries.com/#api-endpoints-v3-all) - Restful API to get information about all countries
+- [Undraw Illustrations](https://undraw.co/) - Open-source illustrations
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

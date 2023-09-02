@@ -1,0 +1,42 @@
+.container {
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: var(--primary);
+  margin: 1rem 0;
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+.input {
+  width: 100%;
+  background: none;
+  padding: 0 0.5rem;
+  color: var(--text);
+  font-size: 1.1rem;
+  font-family: 'Lato', sans-serif;
+  text-transform: capitalize;
+  border: none;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.input::placeholder {
+  color: var(--text);
+  opacity: 0.5;
+}
+
+.input:focus::placeholder {
+  opacity: 0.8;
+}
+
+@media (min-width: 1280px) {
+  .container {
+    padding: 1rem 2rem;
+    margin-left: 0;
+  }
+}
