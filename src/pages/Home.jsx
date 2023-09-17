@@ -22,7 +22,10 @@ const Home = () => {
     if (status === 'idle') dispatch(getAllCountries());
   }, [status, dispatch]);
 
-  const countries = filterAndSortCountries(query, sorter, data).slice(0, displayCount);
+  const countries = filterAndSortCountries(query, sorter, data).slice(
+    0,
+    displayCount,
+  );
 
   if (status === 'loading') {
     return <Loading />;
@@ -31,9 +34,7 @@ const Home = () => {
     <main className="maxContainer">
       <SearchBox query={query} setQuery={setQuery} />
       <SortingBox sorter={sorter} setSorter={setSorter} />
-      {loadingMore ? (
-        <Loading />
-      ) : countries.length === 0 ? (
+      {countries.length === 0 ? (
         <PageHolder
           title="No countries found"
           message="Please try again with a different search term."
@@ -42,17 +43,27 @@ const Home = () => {
       ) : (
         <>
           <Countries countries={countries} />
-          <button
-            onClick={() => {
-              setLoadingMore(true);
-              setTimeout(() => {
-                setDisplayCount(displayCount + 12);
-                setLoadingMore(false);
-              }, 3000);
-            }}
-          >
-            Load More
-          </button>
+          {loadingMore && (
+            <div className="loadingContainer">
+              <div className="loadingSpinner" />
+              <p>Loading more countries...</p>
+            </div>
+          )}
+          {query.length === 0 && !loadingMore && (
+            <button
+              type="button"
+              className="btn"
+              onClick={() => {
+                setLoadingMore(true);
+                setTimeout(() => {
+                  setDisplayCount(displayCount + 12);
+                  setLoadingMore(false);
+                }, 2000);
+              }}
+            >
+              Load More
+            </button>
+          )}
         </>
       )}
     </main>
