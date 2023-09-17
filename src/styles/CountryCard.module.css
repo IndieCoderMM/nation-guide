@@ -15,10 +15,6 @@
   z-index: 1;
 }
 
-.card:hover .frame img {
-  transform: scale(1.2);
-}
-
 .link {
   position: absolute;
   top: 0;
@@ -39,6 +35,10 @@
   height: 100%;
   object-fit: fill;
   transition: all 0.2s ease-in-out;
+}
+
+.card:hover .frame img {
+  transform: scale(1.2);
 }
 
 .name {
