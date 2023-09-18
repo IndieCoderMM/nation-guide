@@ -168,7 +168,7 @@ If you like this project, please consider giving it a ⭐.
 
 ## 🙏 Acknowledgments 
 
-- [Ballhead App](https://www.behance.net/gallery/31579789/Ballhead-App-(Free-PSDs)) - Original design idea by [Nelson Sakwa on Behance](https://www.behance.net/sakwadesignstudio)
+The design was inspired by [Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
