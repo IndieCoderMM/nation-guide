@@ -8,10 +8,11 @@ import PageHolder from '../components/PageHolder';
 import Loading from '../components/Loading';
 import { getAllCountries } from '../redux/countries';
 import { filterAndSortCountries } from '../lib/utils';
+import { sortingOptions } from '../lib/constants';
 
 const Home = () => {
   const [query, setQuery] = useState('');
-  const [sorter, setSorter] = useState('area-d');
+  const [sorter, setSorter] = useState(sortingOptions[0]);
   const [displayCount, setDisplayCount] = useState(12);
   const [loadingMore, setLoadingMore] = useState(false);
   const data = useSelector((state) => state.data);
@@ -22,7 +23,7 @@ const Home = () => {
     if (status === 'idle') dispatch(getAllCountries());
   }, [status, dispatch]);
 
-  const countries = filterAndSortCountries(query, sorter, data).slice(
+  const countries = filterAndSortCountries(query, sorter.value, data).slice(
     0,
     displayCount,
   );
@@ -32,8 +33,10 @@ const Home = () => {
   }
   return (
     <main className="maxContainer">
-      <SearchBox query={query} setQuery={setQuery} />
-      <SortingBox sorter={sorter} setSorter={setSorter} />
+      <div className="flexBetween">
+        <SearchBox query={query} setQuery={setQuery} />
+        <SortingBox sorter={sorter} setSorter={setSorter} />
+      </div>
       {countries.length === 0 ? (
         <PageHolder
           title="No countries found"

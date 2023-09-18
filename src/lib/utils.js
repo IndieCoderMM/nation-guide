@@ -1,3 +1,5 @@
+import { sortingOptions } from './constants';
+
 /**
  * Generate a slug from a string.
  *
@@ -15,7 +17,7 @@ export const generateSlug = (name) => name.toLowerCase().replace(/\s+/g, '-');
  * @returns {Array} - The filtered and sorted list of countries.
  */
 export const filterAndSortCountries = (query, sorter, data) => {
-  const validSorters = ['area-d', 'area-a', 'name-d', 'name-a'];
+  const validSorters = sortingOptions.map((option) => option.value);
   if (!validSorters.includes(sorter)) {
     throw new Error('Invalid sorter');
   }
@@ -28,13 +30,13 @@ export const filterAndSortCountries = (query, sorter, data) => {
 
   const sortedCountries = [...filteredCountries];
 
-  if (sorter === 'area-d') {
+  if (sorter === 'area-desc') {
     sortedCountries.sort((a, b) => b.area - a.area);
-  } else if (sorter === 'area-a') {
+  } else if (sorter === 'area-asc') {
     sortedCountries.sort((a, b) => a.area - b.area);
-  } else if (sorter === 'name-d') {
+  } else if (sorter === 'name-desc') {
     sortedCountries.sort((a, b) => a.name.common.localeCompare(b.name.common));
-  } else if (sorter === 'name-a') {
+  } else if (sorter === 'name-asc') {
     sortedCountries.sort((a, b) => b.name.common.localeCompare(a.name.common));
   }
 

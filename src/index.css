@@ -1,4 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,500;6..12,600;6..12,700&family=Rowdies&display=swap');
+
+:root {
+  --background: #e6eeff;
+  --foreground: #becaf8;
+  --primary: #9fbfff;
+  --secondary: #becaf8;
+  --accent: #17dab3;
+  --border: #e0daf696;
+  --text: #0c1c4f;
+  --dark: #25002e;
+  --light: #fcfcfd;
+  --font: 'Nunito Sans', sans-serif;
+  --font-logo: 'Rowdies', cursive;
+}
+
+.dark {
+  --background: #051129;
+  --foreground: #061637;
+  --primary: #1a53c7;
+  --secondary: #08323a;
+  --accent: #2dc3e1;
+  --border: #e0daf696;
+  --text: #e0daf6;
+}
 
 * {
   margin: 0;
@@ -7,7 +31,7 @@
 }
 
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: var(--font);
   color: var(--text);
   background-color: var(--background);
 }
@@ -21,32 +45,21 @@ a {
   text-decoration: none;
 }
 
-:root {
-  --background: #e6eeff;
-  --foreground: #becaf8;
-  --primary: #9fbfff;
-  --secondary: #becaf8;
-  --accent: #17dab3;
-  --border: #e0daf696;
-  --text: #0c1c4f;
-  --dark: #25002e;
-  --light: #fcfcfd;
-}
-
-.dark {
-  --background: #051129;
-  --foreground: #061637;
-  --primary: #1a53c7;
-  --secondary: #08323a;
-  --accent: #2dc3e1;
-  --border: #e0daf696;
-  --text: #e0daf6;
+button {
+  font-family: var(--font);
 }
 
 .maxContainer {
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
+}
+
+.flexBetween {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
 }
 
 .btn {
@@ -131,5 +144,11 @@ a {
 @keyframes l27 {
   100% {
     transform: rotate(1turn);
+  }
+}
+
+@media (min-width: 768px) {
+  .flexBetween {
+    flex-direction: row;
   }
 }
