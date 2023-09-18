@@ -11,6 +11,8 @@
 
 .title {
   order: -1;
+  font-family: var(--font-logo);
+  font-weight: 300;
 }
 
 .socials {

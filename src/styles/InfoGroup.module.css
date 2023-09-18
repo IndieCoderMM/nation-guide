@@ -7,13 +7,26 @@
   background-color: var(--foreground);
 }
 
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  width: 100%;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.header > svg {
+  font-size: 1.8em;
+  color: var(--accent);
+}
+
 .title {
   text-transform: capitalize;
   font-size: 1.5rem;
   font-weight: 600;
-  margin-bottom: 1rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid var(--border);
 }
 
 @media (min-width: 1280px) {
