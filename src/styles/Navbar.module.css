@@ -12,8 +12,9 @@
 
 .title {
   font-size: 2.5rem;
-  font-weight: 700;
+  font-weight: 400;
   color: var(--text);
+  font-family: var(--font-logo);
 }
 
 .buttons {
