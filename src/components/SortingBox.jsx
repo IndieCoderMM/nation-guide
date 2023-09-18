@@ -1,19 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Dropdown from './Dropdown';
 import styles from '../styles/SortingBox.module.css';
 
 const SortingBox = ({ sorter, setSorter }) => (
   <div className={styles.container}>
-    <select
-      className={styles.select}
+    <Dropdown
+      options={[
+        { value: 'area-d', label: 'Sort by Area [D]' },
+        { value: 'area-a', label: 'Sort by Area [A]' },
+        { value: 'name-d', label: 'Sort by Name [D]' },
+        { value: 'name-a', label: 'Sort by Name [A]' },
+      ]}
       value={sorter}
-      onChange={(e) => setSorter(e.target.value)}
-    >
-      <option value="area-d">Sort by Area [D]</option>
-      <option value="area-a">Sort by Area [A]</option>
-      <option value="name-d">Sort by Name [A]</option>
-      <option value="name-a">Sort by Name [D]</option>
-    </select>
+      onChange={setSorter}
+    />
   </div>
 );
 
