@@ -5,7 +5,7 @@
   --foreground: #becaf8;
   --primary: #9fbfff;
   --secondary: #becaf8;
-  --accent: #17dab3;
+  --accent: #4b4db0;
   --border: #e0daf696;
   --text: #0c1c4f;
   --dark: #25002e;
@@ -49,6 +49,18 @@ button {
   font-family: var(--font);
 }
 
+body::-webkit-scrollbar {
+  width: 5px;
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--primary);
+}
+
 .maxContainer {
   width: 100%;
   max-width: 1400px;
@@ -76,11 +88,10 @@ button {
   font-weight: 600;
   margin: 0 auto;
   min-height: 3rem;
-  padding: 0.8rem 1rem;
+  padding: 0.8rem 2rem;
   text-decoration: none;
   transition: all 250ms;
-  width: 100%;
-  max-width: 360px;
+  max-width: 100%;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
@@ -104,6 +115,10 @@ button {
   box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
   color: rgba(0, 0, 0, 0.65);
   transform: translateY(0);
+}
+
+.btn.rounded {
+  border-radius: 999px;
 }
 
 .loadingContainer {

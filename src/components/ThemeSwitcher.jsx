@@ -13,6 +13,7 @@ const ThemeSwitcher = () => {
           onChange={() => setMode(mode === 'light' ? 'dark' : 'light')}
           className={styles.checkbox}
           checked={mode === 'light'}
+          title="Toggle theme"
         />
         <span className={styles.slider} />
       </label>

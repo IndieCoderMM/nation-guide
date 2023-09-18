@@ -11,16 +11,12 @@
   font-weight: 600;
   border: none;
   width: 100%;
-  padding: 0.75rem;
+  padding: 0.75rem 1rem;
   cursor: pointer;
   text-transform: capitalize;
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-
-.trigger:focus {
-  outline: none;
 }
 
 .options {
@@ -44,13 +40,14 @@
   display: block;
   width: 100%;
   border: none;
-  padding: 0.75rem;
+  padding: 0.75rem 1rem;
   background-color: transparent;
   text-align: left;
   cursor: pointer;
 }
 
-.item:hover {
+.item:hover,
+.item.selected {
   background-color: var(--secondary);
 }
 
