@@ -10,7 +10,7 @@ const PageHolder = ({ title, message, showHome }) => (
     <p className={styles.text}>{message}</p>
     <img src={ErrorImg} alt="error" className={styles.img} />
     {showHome && (
-      <Link to="/" className="home-btn">
+      <Link to="/" className="btn rounded">
         Back to Home
       </Link>
     )}

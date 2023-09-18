@@ -59,10 +59,12 @@ const Dropdown = ({ options, defaultValue, onChange }) => {
           <button
             key={option.value}
             type="button"
-            className={styles.item}
+            className={`${styles.item} ${
+              option.value === selectedOption.value ? styles.selected : ''
+            }`}
             onClick={() => handleOptionClick(option)}
             role="option"
-            aria-selected={option === selectedOption}
+            aria-selected={option.value === selectedOption.value}
           >
             {option.label}
           </button>

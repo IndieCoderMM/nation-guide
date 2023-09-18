@@ -55,7 +55,7 @@ const Home = () => {
           {query.length === 0 && !loadingMore && (
             <button
               type="button"
-              className="btn"
+              className="btn rounded"
               onClick={() => {
                 setLoadingMore(true);
                 setTimeout(() => {

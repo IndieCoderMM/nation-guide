@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { TbArrowBigLeftLines } from 'react-icons/tb';
+import { BsCashCoin, BsPinMapFill, BsFillPatchCheckFill } from 'react-icons/bs';
+import { FaChartPie, FaInfo, FaLandmark } from 'react-icons/fa';
 
 import DataItem from '../components/DataItem';
 import styles from '../styles/Detail.module.css';
@@ -49,7 +51,7 @@ const Detail = () => {
               <img src={country.coatOfArms.png} alt="Coat of Arms" />
             </div>
           )}
-          <InfoGroup title="Basic">
+          <InfoGroup title="Basic Info" icon={<BsFillPatchCheckFill />}>
             <DataItem title="Official Name" data={country.name?.official} />
             {nativeName && (
               <DataItem
@@ -61,7 +63,7 @@ const Detail = () => {
         </div>
       </div>
       <section className={styles.grid}>
-        <InfoGroup title="Geographic Details">
+        <InfoGroup title="Geographics" icon={<FaLandmark />}>
           {country.capital && (
             <DataItem title="Capital" data={country.capital} />
           )}
@@ -74,12 +76,12 @@ const Detail = () => {
           />
         </InfoGroup>
 
-        <InfoGroup title="Demographics">
+        <InfoGroup title="Demographics" icon={<FaChartPie />}>
           <DataItem title="Area" data={country.area} unit="km²" />
           <DataItem title="Population" data={country.population} />
         </InfoGroup>
 
-        <InfoGroup title="Location">
+        <InfoGroup title="Location" icon={<BsPinMapFill />}>
           <DataItem title="Timezone" data={country.timezones[0]} />
           <DataItem title="Latitude" data={country.latlng[0]} unit="&#176;" />
           <DataItem title="Longitude" data={country.latlng[1]} unit="&#176;" />
@@ -95,7 +97,7 @@ const Detail = () => {
         </InfoGroup>
 
         {currency ? (
-          <InfoGroup title="Currency">
+          <InfoGroup title="Currency" icon={<BsCashCoin />}>
             <DataItem title="Code" data={currency} />
             <DataItem title="Name" data={country.currencies[currency].name} />
             <DataItem
@@ -105,7 +107,7 @@ const Detail = () => {
           </InfoGroup>
         ) : null}
 
-        <InfoGroup title="More Info">
+        <InfoGroup title="More Info" icon={<FaInfo />}>
           <DataItem title="Top Level Domain" data={country.tld?.join(',')} />
           <DataItem title="Spellings" data={country.altSpellings[0]} />
         </InfoGroup>
