@@ -4,7 +4,7 @@ import Dropdown from '../../components/Dropdown';
 import { SORTING_OPTIONS } from '../../lib/constants';
 
 import styles from './styles/SortingBox.module.css';
-import { selectSorter } from '../../redux/displaySettingsSlice';
+import { selectSorter, setSorter } from '../../redux/displaySettingsSlice';
 
 const sortingOptions = [
   { label: 'Area (asc)', value: SORTING_OPTIONS.AREA_ASC },
@@ -17,7 +17,7 @@ const SortingBox = () => {
   const sorter = useSelector(selectSorter);
   const dispatch = useDispatch();
 
-  const setSorter = (option) => {
+  const handleSorterChange = (option) => {
     dispatch(setSorter(option.value));
   };
 
@@ -26,7 +26,7 @@ const SortingBox = () => {
       <Dropdown
         options={sortingOptions}
         defaultValue={sorter}
-        onChange={setSorter}
+        onChange={handleSorterChange}
       />
     </div>
   );

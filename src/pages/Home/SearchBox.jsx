@@ -30,11 +30,11 @@ const SearchBox = () => {
       <input
         type="text"
         name="country"
-        aria-label="Search country by name"
+        aria-label="Search country"
         className={styles.input}
         value={searchQuery}
         onChange={handleQueryChange}
-        placeholder="Search country by name"
+        placeholder="Search country"
         maxLength={80}
       />
     </div>
