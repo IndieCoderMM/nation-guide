@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { TbArrowBigLeftLines } from 'react-icons/tb';
 import { BsCashCoin, BsPinMapFill, BsFillPatchCheckFill } from 'react-icons/bs';
@@ -7,14 +7,24 @@ import { FaChartPie, FaInfo, FaLandmark } from 'react-icons/fa';
 
 import PageHolder from '../../components/PageHolder';
 import { generateSlug } from '../../lib/utils';
+import {
+  COUNTRIES_STATUS,
+  getAllCountries,
+  selectAllCountries,
+  selectCountriesStatus,
+} from '../../redux/countriesSlice';
 
 import DataItem from './DataItem';
 import InfoGroup from './InfoGroup';
 import styles from './styles/Detail.module.css';
+import Loading from '../../components/Loading';
 
 const Detail = () => {
   const { country_name: name } = useParams();
-  const countries = useSelector((state) => state.data);
+  const countries = useSelector(selectAllCountries);
+  const status = useSelector(selectCountriesStatus);
+  const dispatch = useDispatch();
+
   const country = countries.find(
     // eslint-disable-next-line
     (country) => generateSlug(country?.name.common) === name,
@@ -22,7 +32,17 @@ const Detail = () => {
 
   useEffect(() => window.scrollTo(0, 0), []);
 
-  if (!country) {
+  useEffect(() => {
+    if (status === COUNTRIES_STATUS.IDLE) {
+      dispatch(getAllCountries());
+    }
+  }, [status, dispatch]);
+
+  if (status === COUNTRIES_STATUS.LOADING) {
+    return <Loading />;
+  }
+
+  if (!country || status === COUNTRIES_STATUS.ERROR) {
     return (
       <PageHolder
         title="Something went wrong!"

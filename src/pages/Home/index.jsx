@@ -8,6 +8,7 @@ import {
   selectAllCountries,
   selectCountriesStatus,
   getAllCountries,
+  COUNTRIES_STATUS,
 } from '../../redux/countriesSlice';
 
 import SearchBox from './SearchBox';
@@ -24,8 +25,10 @@ const Home = () => {
   const status = useSelector(selectCountriesStatus);
   const dispatch = useDispatch();
 
+  useEffect(() => window.scrollTo(0, 0), []);
+
   useEffect(() => {
-    if (status === 'idle') dispatch(getAllCountries());
+    if (status === COUNTRIES_STATUS.IDLE) dispatch(getAllCountries());
   }, [status, dispatch]);
 
   const countries = filterAndSortCountries(query, sorter, data).slice(
@@ -33,9 +36,19 @@ const Home = () => {
     displayCount,
   );
 
-  if (status === 'loading') {
+  if (status === COUNTRIES_STATUS.LOADING) {
     return <Loading />;
   }
+
+  if (status === COUNTRIES_STATUS.ERROR) {
+    return (
+      <PageHolder
+        title="Something went wrong!"
+        message="There was an error while loading data. Please try again later."
+      />
+    );
+  }
+
   return (
     <main className="maxContainer">
       <div className="flexBetween">
