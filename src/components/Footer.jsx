@@ -1,5 +1,6 @@
-import styles from '../styles/Footer.module.css';
 import { socialLinks } from '../lib/constants';
+
+import styles from './styles/Footer.module.css';
 
 const Footer = () => (
   <footer>

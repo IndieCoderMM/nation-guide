@@ -1,15 +1,16 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { TbArrowBigLeftLines } from 'react-icons/tb';
 import { BsCashCoin, BsPinMapFill, BsFillPatchCheckFill } from 'react-icons/bs';
 import { FaChartPie, FaInfo, FaLandmark } from 'react-icons/fa';
 
-import DataItem from '../components/DataItem';
-import styles from '../styles/Detail.module.css';
-import PageHolder from '../components/PageHolder';
-import { generateSlug } from '../lib/utils';
-import InfoGroup from '../components/InfoGroup';
+import PageHolder from '../../components/PageHolder';
+import { generateSlug } from '../../lib/utils';
+
+import DataItem from './DataItem';
+import InfoGroup from './InfoGroup';
+import styles from './styles/Detail.module.css';
 
 const Detail = () => {
   const { country_name: name } = useParams();

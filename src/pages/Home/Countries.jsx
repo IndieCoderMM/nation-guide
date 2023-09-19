@@ -1,6 +1,7 @@
+import { CountryListType } from '../../propTypes';
+
 import CountryCard from './CountryCard';
-import styles from '../styles/Countries.module.css';
-import { CountryListType } from '../propTypes';
+import styles from './styles/Countries.module.css';
 
 const Countries = ({ countries }) => (
   <section className={styles.container}>

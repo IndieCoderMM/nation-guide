@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { FaSort } from 'react-icons/fa';
-import styles from '../styles/Dropdown.module.css';
-import { sortingOptions } from '../lib/constants';
+import styles from './styles/Dropdown.module.css';
 
 const Dropdown = ({ options, defaultValue, onChange }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -74,7 +73,10 @@ const Dropdown = ({ options, defaultValue, onChange }) => {
   );
 };
 
-const Option = PropTypes.oneOf(sortingOptions);
+const Option = PropTypes.shape({
+  label: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+});
 
 Dropdown.propTypes = {
   options: PropTypes.arrayOf(Option).isRequired,

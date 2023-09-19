@@ -1,12 +1,12 @@
 import { FiGithub, FiLinkedin } from 'react-icons/fi';
 import { BiGlobe } from 'react-icons/bi';
 
-export const sortingOptions = [
-  { label: 'Area (asc)', value: 'area-asc' },
-  { label: 'Area (desc)', value: 'area-desc' },
-  { label: 'Name (asc)', value: 'name-asc' },
-  { label: 'Name (desc)', value: 'name-desc' },
-];
+export const SORTING_OPTIONS = {
+  NAME_DESC: 'name-desc',
+  NAME_ASC: 'name-asc',
+  AREA_ASC: 'area-asc',
+  AREA_DESC: 'area-desc',
+};
 
 export const socialLinks = [
   {

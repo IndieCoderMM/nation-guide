@@ -1,29 +1,34 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import SearchBox from '../components/SearchBox';
-import SortingBox from '../components/SortingBox';
-import Countries from '../components/Countries';
-import PageHolder from '../components/PageHolder';
-import Loading from '../components/Loading';
-import { getAllCountries } from '../redux/countries';
-import { filterAndSortCountries } from '../lib/utils';
-import { sortingOptions } from '../lib/constants';
+import PageHolder from '../../components/PageHolder';
+import Loading from '../../components/Loading';
+import { filterAndSortCountries } from '../../lib/utils';
+import {
+  selectAllCountries,
+  selectCountriesStatus,
+  getAllCountries,
+} from '../../redux/countriesSlice';
+
+import SearchBox from './SearchBox';
+import SortingBox from './SortingBox';
+import Countries from './Countries';
+import { selectQuery, selectSorter } from '../../redux/displaySettingsSlice';
 
 const Home = () => {
-  const [query, setQuery] = useState('');
-  const [sorter, setSorter] = useState(sortingOptions[0]);
+  const query = useSelector(selectQuery);
+  const sorter = useSelector(selectSorter);
   const [displayCount, setDisplayCount] = useState(12);
   const [loadingMore, setLoadingMore] = useState(false);
-  const data = useSelector((state) => state.data);
-  const status = useSelector((state) => state.status);
+  const data = useSelector(selectAllCountries);
+  const status = useSelector(selectCountriesStatus);
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (status === 'idle') dispatch(getAllCountries());
   }, [status, dispatch]);
 
-  const countries = filterAndSortCountries(query, sorter.value, data).slice(
+  const countries = filterAndSortCountries(query, sorter, data).slice(
     0,
     displayCount,
   );
@@ -34,8 +39,8 @@ const Home = () => {
   return (
     <main className="maxContainer">
       <div className="flexBetween">
-        <SearchBox query={query} setQuery={setQuery} />
-        <SortingBox sorter={sorter} setSorter={setSorter} />
+        <SearchBox />
+        <SortingBox />
       </div>
       {countries.length === 0 ? (
         <PageHolder

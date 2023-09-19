@@ -1,6 +1,6 @@
-import React from 'react';
 import { BsGithub } from 'react-icons/bs';
-import styles from '../styles/Navbar.module.css';
+
+import styles from './styles/Navbar.module.css';
 import ThemeSwitcher from './ThemeSwitcher';
 
 const Navbar = () => (

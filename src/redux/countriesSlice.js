@@ -17,8 +17,15 @@ export const getAllCountries = createAsyncThunk(
   },
 );
 
+export const COUNTRIES_STATUS = {
+  IDLE: 'idle',
+  LOADING: 'loading',
+  SUCCESS: 'success',
+  ERROR: 'error',
+};
+
 const initialState = {
-  status: 'idle',
+  status: COUNTRIES_STATUS.IDLE,
   data: [],
   error: '',
 };
@@ -31,18 +38,21 @@ const countriesSlice = createSlice({
       .addCase(getAllCountries.fulfilled, (state, action) => ({
         ...state,
         data: action.payload,
-        status: 'success',
+        status: COUNTRIES_STATUS.SUCCESS,
       }))
       .addCase(getAllCountries.pending, (state) => ({
         ...state,
-        status: 'loading',
+        status: COUNTRIES_STATUS.LOADING,
       }))
       .addCase(getAllCountries.rejected, (state, action) => ({
         ...state,
-        status: 'error',
+        status: COUNTRIES_STATUS.ERROR,
         error: action.error.message,
       }));
   },
 });
+
+export const selectAllCountries = (state) => state.countries.data;
+export const selectCountriesStatus = (state) => state.countries.status;
 
 export default countriesSlice.reducer;

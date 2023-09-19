@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import styles from '../styles/PageHolder.module.css';
+import styles from './styles/PageHolder.module.css';
 import ErrorImg from '../assets/error.svg';
 
 const PageHolder = ({ title, message, showHome }) => (
