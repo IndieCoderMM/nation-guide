@@ -1,9 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
 import Dropdown from '../../components/Dropdown';
 import { SORTING_OPTIONS } from '../../lib/constants';
 
 import styles from './styles/SortingBox.module.css';
+import { selectSorter } from '../../redux/displaySettingsSlice';
 
 const sortingOptions = [
   { label: 'Area (asc)', value: SORTING_OPTIONS.AREA_ASC },
@@ -12,19 +13,23 @@ const sortingOptions = [
   { label: 'Name (desc)', value: SORTING_OPTIONS.NAME_DESC },
 ];
 
-const SortingBox = ({ sorter, setSorter }) => (
-  <div className={styles.container}>
-    <Dropdown
-      options={sortingOptions}
-      defaultValue={sorter}
-      onChange={setSorter}
-    />
-  </div>
-);
+const SortingBox = () => {
+  const sorter = useSelector(selectSorter);
+  const dispatch = useDispatch();
 
-SortingBox.propTypes = {
-  sorter: PropTypes.oneOf(sortingOptions).isRequired,
-  setSorter: PropTypes.func.isRequired,
+  const setSorter = (option) => {
+    dispatch(setSorter(option.value));
+  };
+
+  return (
+    <div className={styles.container}>
+      <Dropdown
+        options={sortingOptions}
+        defaultValue={sorter}
+        onChange={setSorter}
+      />
+    </div>
+  );
 };
 
 export default SortingBox;

@@ -46,7 +46,7 @@ const Dropdown = ({ options, defaultValue, onChange }) => {
         aria-haspopup="listbox"
         aria-expanded={isOpen}
       >
-        {selectedOption.label}
+        {selectedOption}
         <FaSort />
       </button>
 
@@ -59,11 +59,11 @@ const Dropdown = ({ options, defaultValue, onChange }) => {
             key={option.value}
             type="button"
             className={`${styles.item} ${
-              option.value === selectedOption.value ? styles.selected : ''
+              option.value === selectedOption ? styles.selected : ''
             }`}
             onClick={() => handleOptionClick(option)}
             role="option"
-            aria-selected={option.value === selectedOption.value}
+            aria-selected={option.value === selectedOption}
           >
             {option.label}
           </button>
