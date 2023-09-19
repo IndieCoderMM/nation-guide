@@ -38,7 +38,7 @@ body {
 
 main {
   min-height: 100vh;
-  padding: 1rem;
+  padding: 0.5rem;
 }
 
 a {
@@ -121,6 +121,30 @@ body::-webkit-scrollbar-thumb {
   border-radius: 999px;
 }
 
+.btn-br {
+  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: var(--foreground);
+  color: var(--text);
+  border: solid 1px var(--border);
+  border-radius: 8px;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  font-size: 2em;
+  transition: all 0.2s ease-in;
+  cursor: pointer;
+}
+
+.btn-br:hover {
+  background-color: var(--primary);
+  color: var(--light);
+  transform: translateY(-2px);
+}
+
 .loadingContainer {
   width: 100%;
   display: flex;
@@ -145,8 +169,7 @@ body::-webkit-scrollbar-thumb {
   height: 4px;
   border-radius: 50%;
   color: var(--accent);
-  box-shadow:
-    calc(1 * var(--d)) calc(0 * var(--d)) 0 0,
+  box-shadow: calc(1 * var(--d)) calc(0 * var(--d)) 0 0,
     calc(0.707 * var(--d)) calc(0.707 * var(--d)) 0 1px,
     calc(0 * var(--d)) calc(1 * var(--d)) 0 2px,
     calc(-0.707 * var(--d)) calc(0.707 * var(--d)) 0 3px,

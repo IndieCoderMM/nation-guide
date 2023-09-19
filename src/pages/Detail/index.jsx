@@ -133,7 +133,7 @@ const Detail = () => {
           <DataItem title="Spellings" data={country.altSpellings[0]} />
         </InfoGroup>
       </section>
-      <Link to="/" className={styles.back} aria-label="back to home">
+      <Link to="/" className="btn-br" aria-label="back to home">
         <TbArrowBigLeftLines />
       </Link>
     </main>

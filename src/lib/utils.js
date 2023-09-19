@@ -19,7 +19,7 @@ export const generateSlug = (name) => name.toLowerCase().replace(/\s+/g, '-');
 export const filterAndSortCountries = (query, sorter, data) => {
   const validSorters = Object.values(SORTING_OPTIONS);
   if (!validSorters.includes(sorter)) {
-    throw new Error('Invalid sorter');
+    throw new Error('Invalid sorter!');
   }
 
   const getName = (country) => country.name.common.toLowerCase();
@@ -34,9 +34,9 @@ export const filterAndSortCountries = (query, sorter, data) => {
     sortedCountries.sort((a, b) => b.area - a.area);
   } else if (sorter === SORTING_OPTIONS.AREA_ASC) {
     sortedCountries.sort((a, b) => a.area - b.area);
-  } else if (sorter === SORTING_OPTIONS.NAME_DESC) {
-    sortedCountries.sort((a, b) => a.name.common.localeCompare(b.name.common));
   } else if (sorter === SORTING_OPTIONS.NAME_ASC) {
+    sortedCountries.sort((a, b) => a.name.common.localeCompare(b.name.common));
+  } else if (sorter === SORTING_OPTIONS.NAME_DESC) {
     sortedCountries.sort((a, b) => b.name.common.localeCompare(a.name.common));
   }
 

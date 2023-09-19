@@ -10,11 +10,11 @@ import {
   getAllCountries,
   COUNTRIES_STATUS,
 } from '../../redux/countriesSlice';
+import { selectQuery, selectSorter } from '../../redux/displaySettingsSlice';
 
 import SearchBox from './SearchBox';
 import SortingBox from './SortingBox';
 import Countries from './Countries';
-import { selectQuery, selectSorter } from '../../redux/displaySettingsSlice';
 
 const Home = () => {
   const query = useSelector(selectQuery);
