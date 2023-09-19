@@ -21,11 +21,12 @@ const PageHolder = ({ title, message, showHome, imgSrc = ErrorImg }) => (
 PageHolder.propTypes = {
   title: PropTypes.string.isRequired,
   message: PropTypes.string.isRequired,
-  showHome: PropTypes.bool.isRequired,
+  showHome: PropTypes.bool,
   imgSrc: PropTypes.string,
 };
 
 PageHolder.defaultProps = {
+  showHome: false,
   imgSrc: ErrorImg,
 };
 

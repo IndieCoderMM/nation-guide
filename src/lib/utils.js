@@ -9,26 +9,18 @@ import { SORTING_OPTIONS } from './constants';
 export const generateSlug = (name) => name.toLowerCase().replace(/\s+/g, '-');
 
 /**
- * Filter and sort a list of countries based on search query and sorting criteria.
- *
- * @param {string} query - The search query to filter countries by name.
+ * Sort a list of countries based on sorting criteria.
  * @param {string} sorter - The sorting criteria ('area-d', 'area-a', 'name-d', 'name-a').
  * @param {Array} data - An array of country objects.
  * @returns {Array} - The filtered and sorted list of countries.
  */
-export const filterAndSortCountries = (query, sorter, data) => {
+export const sortCountries = (sorter, data) => {
   const validSorters = Object.values(SORTING_OPTIONS);
   if (!validSorters.includes(sorter)) {
     throw new Error('Invalid sorter!');
   }
 
-  const getName = (country) => country.name.common.toLowerCase();
-
-  const filteredCountries = query.trim()
-    ? data.filter((country) => getName(country).includes(query.toLowerCase()))
-    : data;
-
-  const sortedCountries = [...filteredCountries];
+  const sortedCountries = [...data];
 
   if (sorter === SORTING_OPTIONS.AREA_DESC) {
     sortedCountries.sort((a, b) => b.area - a.area);
@@ -41,4 +33,24 @@ export const filterAndSortCountries = (query, sorter, data) => {
   }
 
   return sortedCountries;
+};
+
+/**
+ * Query a list of countries based on search query
+ * @param {string} query The search query to filter countries by name.
+ * @param {Array} data
+ * @returns {Array}
+ */
+export const queryCountries = (query, data) => {
+  const searchTerm = query.trim();
+  if (searchTerm) {
+    return data.filter(
+      (country) =>
+        // eslint-disable-next-line
+        country.name.common.toLowerCase().includes(searchTerm.toLowerCase()),
+      // eslint-disable-next-line
+    );
+  }
+
+  return data;
 };

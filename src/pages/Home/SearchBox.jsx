@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { FiSearch } from 'react-icons/fi';
+import { FaWindowClose } from 'react-icons/fa';
 
 import styles from './styles/SearchBox.module.css';
 import { selectQuery, setQuery } from '../../redux/displaySettingsSlice';
@@ -20,6 +21,12 @@ const SearchBox = () => {
     setDebouncedQuery(event.target.value);
   };
 
+  const clearQuery = () => {
+    setSearchQuery('');
+    setDebouncedQuery('');
+    dispatch(setQuery(''));
+  };
+
   useEffect(() => {
     dispatch(setQuery(debouncedQuery));
   }, [debouncedQuery, dispatch]);
@@ -37,6 +44,16 @@ const SearchBox = () => {
         placeholder="Search country"
         maxLength={80}
       />
+      {query && (
+        <button
+          type="button"
+          className={styles.clear}
+          aria-label="clear search"
+          onClick={clearQuery}
+        >
+          <FaWindowClose />
+        </button>
+      )}
     </div>
   );
 };

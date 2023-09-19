@@ -1,16 +1,20 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import PageHolder from '../../components/PageHolder';
 import Loading from '../../components/Loading';
-import { filterAndSortCountries } from '../../lib/utils';
+import { queryCountries, sortCountries } from '../../lib/utils';
 import {
   selectAllCountries,
   selectCountriesStatus,
   getAllCountries,
   COUNTRIES_STATUS,
 } from '../../redux/countriesSlice';
-import { selectQuery, selectSorter } from '../../redux/displaySettingsSlice';
+import {
+  selectPage,
+  selectQuery,
+  selectSorter,
+} from '../../redux/displaySettingsSlice';
 
 import SearchBox from './SearchBox';
 import SortingBox from './SortingBox';
@@ -19,8 +23,8 @@ import Countries from './Countries';
 const Home = () => {
   const query = useSelector(selectQuery);
   const sorter = useSelector(selectSorter);
-  const [displayCount, setDisplayCount] = useState(12);
-  const [loadingMore, setLoadingMore] = useState(false);
+  const page = useSelector(selectPage);
+
   const data = useSelector(selectAllCountries);
   const status = useSelector(selectCountriesStatus);
   const dispatch = useDispatch();
@@ -31,9 +35,18 @@ const Home = () => {
     if (status === COUNTRIES_STATUS.IDLE) dispatch(getAllCountries());
   }, [status, dispatch]);
 
-  const countries = filterAndSortCountries(query, sorter, data).slice(
-    0,
-    displayCount,
+  const sortedCountries = useMemo(
+    () => sortCountries(sorter, data),
+    [sorter, data],
+  );
+
+  const [startIdx, endIdx] = [page * 12, (page + 1) * 12];
+
+  const allCountries = sortedCountries.slice(startIdx, endIdx);
+
+  const selectedCountries = useMemo(
+    () => queryCountries(query, sortedCountries),
+    [query, sortedCountries],
   );
 
   if (status === COUNTRIES_STATUS.LOADING) {
@@ -49,43 +62,20 @@ const Home = () => {
     );
   }
 
+  // eslint-disable-next-line operator-linebreak
+  const countriesToShow =
+    query.trim().length > 0 ? selectedCountries : allCountries;
+
   return (
     <main className="maxContainer">
       <div className="flexBetween">
         <SearchBox />
         <SortingBox />
       </div>
-      {countries.length === 0 ? (
-        <PageHolder
-          title="No countries found"
-          message="Please try again with a different search term."
-          showHome={false}
-        />
+      {query && countriesToShow.length === 0 ? (
+        <PageHolder title="No countries found!" message="Try another search." />
       ) : (
-        <>
-          <Countries countries={countries} />
-          {loadingMore && (
-            <div className="loadingContainer">
-              <div className="loadingSpinner" />
-              <p>Loading more countries...</p>
-            </div>
-          )}
-          {query.length === 0 && !loadingMore && (
-            <button
-              type="button"
-              className="btn rounded"
-              onClick={() => {
-                setLoadingMore(true);
-                setTimeout(() => {
-                  setDisplayCount(displayCount + 12);
-                  setLoadingMore(false);
-                }, 2000);
-              }}
-            >
-              Load More
-            </button>
-          )}
-        </>
+        <Countries countries={countriesToShow} />
       )}
     </main>
   );

@@ -11,7 +11,7 @@
 }
 
 .input {
-  width: 100%;
+  flex: 1;
   background: none;
   padding: 0 0.5rem;
   color: var(--text);
@@ -32,6 +32,16 @@
 
 .input:focus::placeholder {
   opacity: 0.8;
+}
+
+.clear {
+  margin-left: auto;
+  background: none;
+  border: none;
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
 
 @media (min-width: 1280px) {

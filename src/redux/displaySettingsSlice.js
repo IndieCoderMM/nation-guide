@@ -4,6 +4,7 @@ import { SORTING_OPTIONS } from '../lib/constants';
 const initialState = {
   query: '',
   sorter: SORTING_OPTIONS.AREA_ASC,
+  page: 0,
 };
 
 const displaySettingsSlice = createSlice({
@@ -18,11 +19,22 @@ const displaySettingsSlice = createSlice({
       ...state,
       sorter: action.payload,
     }),
+    nextPage: (state) => ({
+      ...state,
+      page: state.page + 1,
+    }),
+    prevPage: (state) => ({
+      ...state,
+      page: state.page - 1,
+    }),
   },
 });
 
-export const { setQuery, setSorter } = displaySettingsSlice.actions;
+// eslint-disable-next-line
+export const { setQuery, setSorter, nextPage, prevPage } =
+  displaySettingsSlice.actions;
 export const selectQuery = (state) => state.displaySettings.query;
 export const selectSorter = (state) => state.displaySettings.sorter;
+export const selectPage = (state) => state.displaySettings.page;
 
 export default displaySettingsSlice.reducer;
