@@ -2,8 +2,13 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { TbArrowBigLeftLines } from 'react-icons/tb';
-import { BsCashCoin, BsPinMapFill, BsFillPatchCheckFill } from 'react-icons/bs';
-import { FaChartPie, FaInfo, FaLandmark } from 'react-icons/fa';
+import {
+  BsCashCoin,
+  BsPinMapFill,
+  BsFillPatchCheckFill,
+  BsInfoCircleFill,
+} from 'react-icons/bs';
+import { FaChartPie, FaLandmark } from 'react-icons/fa';
 
 import PageHolder from '../../components/PageHolder';
 import { generateSlug } from '../../lib/utils';
@@ -128,7 +133,7 @@ const Detail = () => {
           </InfoGroup>
         ) : null}
 
-        <InfoGroup title="More Info" icon={<FaInfo />}>
+        <InfoGroup title="More Info" icon={<BsInfoCircleFill />}>
           <DataItem title="Top Level Domain" data={country.tld?.join(',')} />
           <DataItem title="Spellings" data={country.altSpellings[0]} />
         </InfoGroup>

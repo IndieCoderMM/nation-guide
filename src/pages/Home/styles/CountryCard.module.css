@@ -43,7 +43,7 @@
 
 .name {
   font-size: 1.3rem;
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 1rem;
 }
 
@@ -59,8 +59,10 @@
 }
 
 .infoBox > div > h3 {
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 0.8rem;
+  font-weight: 700;
+  opacity: 0.8;
+  text-transform: uppercase;
 }
 
 .infoBox > div {

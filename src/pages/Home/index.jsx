@@ -19,6 +19,9 @@ import {
 import SearchBox from './SearchBox';
 import SortingBox from './SortingBox';
 import Countries from './Countries';
+import Pagination from './Pagination';
+
+const PER_PAGE = 12;
 
 const Home = () => {
   const query = useSelector(selectQuery);
@@ -40,7 +43,7 @@ const Home = () => {
     [sorter, data],
   );
 
-  const [startIdx, endIdx] = [page * 12, (page + 1) * 12];
+  const [startIdx, endIdx] = [page * PER_PAGE, (page + 1) * PER_PAGE];
 
   const allCountries = sortedCountries.slice(startIdx, endIdx);
 
@@ -66,6 +69,8 @@ const Home = () => {
   const countriesToShow =
     query.trim().length > 0 ? selectedCountries : allCountries;
 
+  const totalPage = Math.ceil(sortedCountries.length / PER_PAGE);
+
   return (
     <main className="maxContainer">
       <div className="flexBetween">
@@ -75,7 +80,10 @@ const Home = () => {
       {query && countriesToShow.length === 0 ? (
         <PageHolder title="No countries found!" message="Try another search." />
       ) : (
-        <Countries countries={countriesToShow} />
+        <>
+          <Countries countries={countriesToShow} />
+          {!query && <Pagination totalPage={totalPage} />}
+        </>
       )}
     </main>
   );
