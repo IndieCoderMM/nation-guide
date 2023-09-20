@@ -5,9 +5,9 @@
 
 - [🌍 Nation Guide - Country Information Webapp](#-nation-guide---country-information-webapp)
   - [🚀 Visit Website](#-visit-website)
-  - [🛠 Built With](#-built-with)
-    - [🧰 Tech Stack](#-tech-stack)
-    - [🔥 Key Features](#-key-features)
+  - [🧰 Tech Stack](#-tech-stack)
+  - [🔥 Features](#-features)
+  - [⚙️ Development](#️-development)
   - [💻 Getting Started](#-getting-started)
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
@@ -19,7 +19,6 @@
   - [🔭 Future Features](#-future-features)
   - [🤝 Contributing](#-contributing)
   - [💖 Show your support](#-show-your-support)
-  - [🙏 Acknowledgments](#-acknowledgments)
   - [💎 Useful Resources](#-useful-resources)
   - [📝 License](#-license)
 
@@ -32,48 +31,84 @@
 [![Last Commit](https://img.shields.io/github/last-commit/indiecodermm/nation-guide)](https://github.com/indiecodermm/nation-guide/commits)
 
 
-**Nation Guide** is an interactive web application designed to provide users with comprehensive information about countries from around the world. Users can browse through a list of all countries, search for specific countries, and view detailed information about each country. The app is built using React and Redux, and is fully responsive for mobile devices.
-
-<img src="./app_screenshot.png" alt="Homepage screenshot" width=480 height=auto >
-<img src="./app_screenshot1.png" alt="Detailpage screenshot" width=480 height=auto >
-<img src="./phone_mockup.png" alt="Phone Mockups" width=480 height=auto >
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
+**Nation Guide** is an dynamic web application designed to provide users with a comprehensive database of country details. This project aimed to provide an efficient and user-friendly tool for users to quickly access information about countries. The app is fully responsive for mobile devices and optimized for a smooth user experience. 
 
 ## 🚀 Visit Website
 
-Experience the live version of this website at [Nation Guide Webapp](https://nation-guide-icmm.onrender.com).
+Experience the live website at [Nation Guide Webapp](https://nation-guide-icmm.onrender.com).
+
+<img src="./app_screenshot.png" alt="Homepage screenshot" width=400 height=auto >
+<img src="./app_screenshot1.png" alt="Detailpage screenshot" width=400 height=auto >
+<img src="./phone_mockup.png" alt="Phone Mockups" width=400 height=auto >
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-## 🛠 Built With
+## 🧰 Tech Stack
 
-### 🧰 Tech Stack
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
+![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+![Testing-Library](https://img.shields.io/badge/-TestingLibrary-%23E33332?style=for-the-badge&logo=testing-library&logoColor=white)
+![Jest](https://img.shields.io/badge/-Jest-%23C21325?style=for-the-badge&logo=jest&logoColor=white)
+![Render](https://img.shields.io/badge/Render-%46E3B7.svg?style=for-the-badge&logo=render&logoColor=white)
 
-- ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
-- ![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
-- ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
-- ![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
-- ![Testing-Library](https://img.shields.io/badge/-TestingLibrary-%23E33332?style=for-the-badge&logo=testing-library&logoColor=white)
-- ![Jest](https://img.shields.io/badge/-Jest-%23C21325?style=for-the-badge&logo=jest&logoColor=white)
-- ![Render](https://img.shields.io/badge/Render-%46E3B7.svg?style=for-the-badge&logo=render&logoColor=white)
+
+## 🔥 Features
+
+- **Explore Countries**: Browse through a list of countries worldwide.
+- **Quick Search**: Find countries by their names in a flash.
+- **Sort & Find**: Easily organize countries by area or name.
+- **Detailed Information**: Get detailed information about each country.
+- **Share Easily**: Share country facts with friends.
+- **Day & Night Modes**: Switch between dark and light themes.
+- **Mobile Friendly**: Enjoy a smooth experience on your phone.
+- **Easy Navigation**: Navigate between pages with ease.
+- **Real-time Updates**: Get the latest country data from REST Countries API.
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+## ⚙️ Development
 
-### 🔥 Key Features
+This app was developed using the latest industry-standards and best practices. The codebase is highly modularized and organized for easy maintenance and scalability. 
 
-- Browse comprehensive list of all countries
-- Quickly search for countries by name
-- Countries are sortable by area or name
-- View detailed information on each country
-- Up-to-date data powered by REST Countries API
-- Design optimized for mobile devices
+<details>
+  <summary>Project Structure</summary>
+  <br>
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+With a focus on clean code and reusability, the project is structured as follows:
 
+```
+.
+└── src/
+    ├── assets
+    ├── components/
+    │   ├── styles
+    │   ├── Navbar.jsx
+    │   └── Footer.jsx
+    ├── hooks
+    ├── redux/
+    │   ├── configureStore.js
+    │   └── slice.js
+    ├── lib/
+    │   └── utils.js
+    ├── pages/
+    │   ├── Home/
+    │   │   ├── index.jsx
+    │   │   └── Countries.jsx
+    │   ├── Detail
+    │   └── NotFound.jsx
+    ├── services
+    ├── tests
+    ├── App.jsx
+    ├── index.jsx
+    ├── index.css
+    └── propTypes.js
+```
+
+</details>
 
 ## 💻 Getting Started
 
@@ -166,16 +201,10 @@ If you like this project, please consider giving it a ⭐.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-## 🙏 Acknowledgments 
-
-- [Ballhead App](https://www.behance.net/gallery/31579789/Ballhead-App-(Free-PSDs)) - Original design idea by [Nelson Sakwa on Behance](https://www.behance.net/sakwadesignstudio)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 ## 💎 Useful Resources
 
-- [Rest Countries API](https://restcountries.com/#api-endpoints-v3-all) - Restful API to get information about all countries
+- [Design Insipration](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca) - Frontend Mentor Challenge
+- [Rest Countries API](https://restcountries.com/#api-endpoints-v3-all) - API to get information about all countries
 - [Undraw Illustrations](https://undraw.co/) - Open-source illustrations
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
