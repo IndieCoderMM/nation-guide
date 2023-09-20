@@ -7,8 +7,9 @@ import {
   BsPinMapFill,
   BsFillPatchCheckFill,
   BsInfoCircleFill,
+  BsLink45Deg,
 } from 'react-icons/bs';
-import { FaChartPie, FaLandmark } from 'react-icons/fa';
+import { FaChartPie, FaChevronRight, FaLandmark } from 'react-icons/fa';
 
 import PageHolder from '../../components/PageHolder';
 import { generateSlug } from '../../lib/utils';
@@ -23,12 +24,14 @@ import DataItem from './DataItem';
 import InfoGroup from './InfoGroup';
 import styles from './styles/Detail.module.css';
 import Loading from '../../components/Loading';
+import useCopyToClipboard from '../../hooks/useCopyToClipboard';
 
 const Detail = () => {
   const { country_name: name } = useParams();
   const countries = useSelector(selectAllCountries);
   const status = useSelector(selectCountriesStatus);
   const dispatch = useDispatch();
+  const [copyToClipboard, hasCopied] = useCopyToClipboard();
 
   const country = countries.find(
     // eslint-disable-next-line
@@ -62,7 +65,25 @@ const Detail = () => {
 
   return (
     <main className={`${styles.container} maxContainer`}>
-      <h1 className={styles.title}>{country.name.common}</h1>
+      <header className={styles.header}>
+        <h1 className={styles.title}>{country.name.common}</h1>
+        <div>
+          <button
+            type="button"
+            className={`btn ${styles.copy}`}
+            title="Share Link"
+            onClick={() => copyToClipboard(window.location.href)}
+          >
+            <BsLink45Deg />
+            <span>{hasCopied ? 'Copied!' : 'Share Link'}</span>
+          </button>
+        </div>
+
+        <div className={styles.breadcrumb}>
+          <Link to="/">Countries</Link>
+          <FaChevronRight />
+        </div>
+      </header>
       <div className={styles.hero}>
         <img
           className={styles.flag}

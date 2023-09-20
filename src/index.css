@@ -132,9 +132,9 @@ body::-webkit-scrollbar-thumb {
   border: solid 1px var(--border);
   border-radius: 8px;
   position: fixed;
-  bottom: 1rem;
-  right: 1rem;
-  font-size: 2em;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  font-size: 1.5em;
   transition: all 0.2s ease-in;
   cursor: pointer;
 }
@@ -189,5 +189,11 @@ body::-webkit-scrollbar-thumb {
 @media (min-width: 768px) {
   .flexBetween {
     flex-direction: row;
+  }
+
+  .btn-br {
+    font-size: 2em;
+    bottom: 1rem;
+    right: 1rem;
   }
 }
