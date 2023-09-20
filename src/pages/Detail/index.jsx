@@ -1,15 +1,20 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
-import { TbArrowBigLeftLines } from 'react-icons/tb';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import {
   BsCashCoin,
   BsPinMapFill,
   BsFillPatchCheckFill,
   BsInfoCircleFill,
-  BsLink45Deg,
+  BsShareFill,
+  BsClipboardCheck,
 } from 'react-icons/bs';
-import { FaChartPie, FaChevronRight, FaLandmark } from 'react-icons/fa';
+import {
+  FaArrowLeft,
+  FaChartPie,
+  FaChevronRight,
+  FaLandmark,
+} from 'react-icons/fa';
 
 import PageHolder from '../../components/PageHolder';
 import { generateSlug } from '../../lib/utils';
@@ -25,12 +30,14 @@ import InfoGroup from './InfoGroup';
 import styles from './styles/Detail.module.css';
 import Loading from '../../components/Loading';
 import useCopyToClipboard from '../../hooks/useCopyToClipboard';
+import FloatingActions from '../../components/FloatingActions';
 
 const Detail = () => {
   const { country_name: name } = useParams();
   const countries = useSelector(selectAllCountries);
   const status = useSelector(selectCountriesStatus);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [copyToClipboard, hasCopied] = useCopyToClipboard();
 
   const country = countries.find(
@@ -67,17 +74,6 @@ const Detail = () => {
     <main className={`${styles.container} maxContainer`}>
       <header className={styles.header}>
         <h1 className={styles.title}>{country.name.common}</h1>
-        <div>
-          <button
-            type="button"
-            className={`btn ${styles.copy}`}
-            title="Share Link"
-            onClick={() => copyToClipboard(window.location.href)}
-          >
-            <BsLink45Deg />
-            <span>{hasCopied ? 'Copied!' : 'Share Link'}</span>
-          </button>
-        </div>
 
         <div className={styles.breadcrumb}>
           <Link to="/">Countries</Link>
@@ -159,9 +155,20 @@ const Detail = () => {
           <DataItem title="Spellings" data={country.altSpellings[0]} />
         </InfoGroup>
       </section>
-      <Link to="/" className="btn-br" aria-label="back to home">
-        <TbArrowBigLeftLines />
-      </Link>
+      <FloatingActions
+        actions={[
+          {
+            label: hasCopied ? 'Copied!' : 'Share Link',
+            icon: hasCopied ? <BsClipboardCheck /> : <BsShareFill />,
+            onClick: () => copyToClipboard(window.location.href),
+          },
+          {
+            label: 'Go back',
+            icon: <FaArrowLeft />,
+            onClick: () => navigate('/'),
+          },
+        ]}
+      />
     </main>
   );
 };
