@@ -1,12 +1,17 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 import { BsGithub } from 'react-icons/bs';
-import styles from '../styles/Navbar.module.css';
+
+import styles from './styles/Navbar.module.css';
 import ThemeSwitcher from './ThemeSwitcher';
 
 const Navbar = () => (
   <header className={styles.header}>
     <div className={`${styles.container} maxContainer`}>
-      <h1 className={styles.title}>nationguide.</h1>
+      <h1>
+        <Link to="/" className={styles.title}>
+          nationguide.
+        </Link>
+      </h1>
       <div className={styles.buttons}>
         <ThemeSwitcher />
         <a

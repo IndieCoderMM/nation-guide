@@ -38,7 +38,7 @@ body {
 
 main {
   min-height: 100vh;
-  padding: 1rem;
+  padding: 0.5rem;
 }
 
 a {
@@ -121,6 +121,30 @@ body::-webkit-scrollbar-thumb {
   border-radius: 999px;
 }
 
+.btn-br {
+  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: var(--foreground);
+  color: var(--text);
+  border: solid 1px var(--border);
+  border-radius: 8px;
+  position: fixed;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  font-size: 1.5em;
+  transition: all 0.2s ease-in;
+  cursor: pointer;
+}
+
+.btn-br:hover {
+  background-color: var(--primary);
+  color: var(--light);
+  transform: translateY(-2px);
+}
+
 .loadingContainer {
   width: 100%;
   display: flex;
@@ -165,5 +189,11 @@ body::-webkit-scrollbar-thumb {
 @media (min-width: 768px) {
   .flexBetween {
     flex-direction: row;
+  }
+
+  .btn-br {
+    font-size: 2em;
+    bottom: 1rem;
+    right: 1rem;
   }
 }

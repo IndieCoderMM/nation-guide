@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
-import styles from '../styles/DataItem.module.css';
+
+import styles from './styles/DataItem.module.css';
 
 const DataItem = ({ title, data, unit }) => (
   <div className={styles.container}>

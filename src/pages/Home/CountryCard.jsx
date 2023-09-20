@@ -1,8 +1,9 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import styles from '../styles/CountryCard.module.css';
-import { generateSlug } from '../lib/utils';
+
+import { generateSlug } from '../../lib/utils';
+
+import styles from './styles/CountryCard.module.css';
 
 // eslint-disable-next-line object-curly-newline
 const CountryCard = ({ name, area, flag, capital, population }) => {

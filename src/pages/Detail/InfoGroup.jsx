@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import styles from '../styles/InfoGroup.module.css';
+import styles from './styles/InfoGroup.module.css';
 
 const InfoGroup = ({ title, icon, children }) => (
   <div className={styles.group}>

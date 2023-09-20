@@ -1,5 +1,5 @@
 import useTheme from '../hooks/useTheme';
-import styles from '../styles/ThemeSwitcher.module.css';
+import styles from './styles/ThemeSwitcher.module.css';
 
 const ThemeSwitcher = () => {
   const [mode, setMode] = useTheme();

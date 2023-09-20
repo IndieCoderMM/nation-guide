@@ -1,19 +1,38 @@
-import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { TbArrowBigLeftLines } from 'react-icons/tb';
-import { BsCashCoin, BsPinMapFill, BsFillPatchCheckFill } from 'react-icons/bs';
-import { FaChartPie, FaInfo, FaLandmark } from 'react-icons/fa';
+import {
+  BsCashCoin,
+  BsPinMapFill,
+  BsFillPatchCheckFill,
+  BsInfoCircleFill,
+  BsLink45Deg,
+} from 'react-icons/bs';
+import { FaChartPie, FaChevronRight, FaLandmark } from 'react-icons/fa';
 
-import DataItem from '../components/DataItem';
-import styles from '../styles/Detail.module.css';
-import PageHolder from '../components/PageHolder';
-import { generateSlug } from '../lib/utils';
-import InfoGroup from '../components/InfoGroup';
+import PageHolder from '../../components/PageHolder';
+import { generateSlug } from '../../lib/utils';
+import {
+  COUNTRIES_STATUS,
+  getAllCountries,
+  selectAllCountries,
+  selectCountriesStatus,
+} from '../../redux/countriesSlice';
+
+import DataItem from './DataItem';
+import InfoGroup from './InfoGroup';
+import styles from './styles/Detail.module.css';
+import Loading from '../../components/Loading';
+import useCopyToClipboard from '../../hooks/useCopyToClipboard';
 
 const Detail = () => {
   const { country_name: name } = useParams();
-  const countries = useSelector((state) => state.data);
+  const countries = useSelector(selectAllCountries);
+  const status = useSelector(selectCountriesStatus);
+  const dispatch = useDispatch();
+  const [copyToClipboard, hasCopied] = useCopyToClipboard();
+
   const country = countries.find(
     // eslint-disable-next-line
     (country) => generateSlug(country?.name.common) === name,
@@ -21,7 +40,17 @@ const Detail = () => {
 
   useEffect(() => window.scrollTo(0, 0), []);
 
-  if (!country) {
+  useEffect(() => {
+    if (status === COUNTRIES_STATUS.IDLE) {
+      dispatch(getAllCountries());
+    }
+  }, [status, dispatch]);
+
+  if (status === COUNTRIES_STATUS.LOADING) {
+    return <Loading />;
+  }
+
+  if (!country || status === COUNTRIES_STATUS.ERROR) {
     return (
       <PageHolder
         title="Something went wrong!"
@@ -36,7 +65,25 @@ const Detail = () => {
 
   return (
     <main className={`${styles.container} maxContainer`}>
-      <h1 className={styles.title}>{country.name.common}</h1>
+      <header className={styles.header}>
+        <h1 className={styles.title}>{country.name.common}</h1>
+        <div>
+          <button
+            type="button"
+            className={`btn ${styles.copy}`}
+            title="Share Link"
+            onClick={() => copyToClipboard(window.location.href)}
+          >
+            <BsLink45Deg />
+            <span>{hasCopied ? 'Copied!' : 'Share Link'}</span>
+          </button>
+        </div>
+
+        <div className={styles.breadcrumb}>
+          <Link to="/">Countries</Link>
+          <FaChevronRight />
+        </div>
+      </header>
       <div className={styles.hero}>
         <img
           className={styles.flag}
@@ -107,12 +154,12 @@ const Detail = () => {
           </InfoGroup>
         ) : null}
 
-        <InfoGroup title="More Info" icon={<FaInfo />}>
+        <InfoGroup title="More Info" icon={<BsInfoCircleFill />}>
           <DataItem title="Top Level Domain" data={country.tld?.join(',')} />
           <DataItem title="Spellings" data={country.altSpellings[0]} />
         </InfoGroup>
       </section>
-      <Link to="/" className={styles.back} aria-label="back to home">
+      <Link to="/" className="btn-br" aria-label="back to home">
         <TbArrowBigLeftLines />
       </Link>
     </main>

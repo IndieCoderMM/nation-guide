@@ -10,7 +10,6 @@
 }
 
 .title {
-  order: -1;
   font-family: var(--font-logo);
   font-weight: 300;
 }
@@ -44,9 +43,5 @@
   .container {
     justify-content: space-between;
     flex-direction: row;
-  }
-
-  .title {
-    order: 0;
   }
 }

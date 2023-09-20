@@ -1,5 +1,6 @@
 import WorldImg from '../assets/world.svg';
-import styles from '../styles/Loading.module.css';
+
+import styles from './styles/Loading.module.css';
 
 const Loading = () => (
   <main className={`${styles.container} maxContainer`}>
