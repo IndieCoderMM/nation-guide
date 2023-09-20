@@ -1,8 +1,7 @@
 .container {
-  padding: 1rem;
+  padding: 1rem 0.75rem;
   border-radius: 8px;
   background-color: var(--primary);
-  margin: 0.5rem 0;
   width: 100%;
   max-width: 350px;
   display: flex;
@@ -35,7 +34,7 @@
 }
 
 .clear {
-  margin-left: auto;
+  justify-self: flex-end;
   background: none;
   border: none;
   font-size: 1em;

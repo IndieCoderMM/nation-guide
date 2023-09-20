@@ -1,0 +1,70 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  gap: 0.5rem;
+  opacity: 0.7;
+  transition: all 0.2s ease-in 0.1s;
+}
+
+.container:hover {
+  opacity: 1;
+}
+
+.action {
+  background-color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  border: none;
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  position: relative;
+}
+
+.action:hover {
+  background-color: var(--primary);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.tooltip {
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  min-width: 100px;
+  display: block;
+  transform: translateY(-50%) translateX(-2px);
+  background-color: var(--primary);
+  color: var(--text);
+  font-size: 0.8rem;
+  text-transform: capitalize;
+  border-radius: 8px;
+  opacity: 0;
+  padding: 0.5rem;
+  transition: all 0.2s ease-in 0.1s;
+}
+
+.action:hover .tooltip {
+  opacity: 1;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    bottom: 5rem;
+    right: 1rem;
+  }
+
+  .action {
+    font-size: 1.6rem;
+  }
+}

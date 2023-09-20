@@ -32,7 +32,7 @@ const Dropdown = ({ options, defaultValue, onChange }) => {
         aria-haspopup="listbox"
         aria-expanded={isOpen}
       >
-        {selectedOption.label}
+        <span>{selectedOption.label}</span>
         <FaSort />
       </button>
 

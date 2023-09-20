@@ -42,9 +42,23 @@
   color: var(--accent);
 }
 
+.copyContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+}
+
 .copy {
-  padding: 0.25rem 0.5rem;
-  background-color: var(--foreground);
+  padding: 0.25rem;
+  border-radius: 8px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  font-size: 1.1rem;
+  background: var(--primary);
   color: var(--text);
 }
 

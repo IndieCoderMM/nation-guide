@@ -20,6 +20,7 @@ import SearchBox from './SearchBox';
 import SortingBox from './SortingBox';
 import Countries from './Countries';
 import Pagination from './Pagination';
+import styles from './styles/Home.module.css';
 
 const PER_PAGE = 12;
 
@@ -33,6 +34,7 @@ const Home = () => {
   const dispatch = useDispatch();
 
   useEffect(() => window.scrollTo(0, 0), []);
+  useEffect(() => window.scrollTo(0, 0), [page]);
 
   useEffect(() => {
     if (status === COUNTRIES_STATUS.IDLE) dispatch(getAllCountries());
@@ -71,7 +73,7 @@ const Home = () => {
 
   return (
     <main className="maxContainer">
-      <div className="flexBetween">
+      <div className={`${styles.sticky}`}>
         <SearchBox />
         <SortingBox />
       </div>

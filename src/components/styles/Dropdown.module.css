@@ -19,10 +19,13 @@
   justify-content: space-between;
 }
 
+.trigger > span {
+  display: none;
+}
+
 .options {
   position: absolute;
   top: 100%;
-  left: 0;
   right: 0;
   height: 0;
   background-color: var(--primary);
@@ -39,6 +42,7 @@
   font-size: 1rem;
   display: block;
   width: 100%;
+  min-width: 150px;
   border: none;
   padding: 0.75rem 1rem;
   background-color: transparent;
@@ -53,4 +57,14 @@
 
 .open {
   height: auto;
+}
+
+@media (min-width: 768px) {
+  .trigger > span {
+    display: block;
+  }
+
+  .options {
+    left: 0;
+  }
 }
