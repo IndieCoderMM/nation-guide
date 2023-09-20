@@ -6,10 +6,55 @@
   gap: 1rem;
 }
 
+.header {
+  width: 100%;
+  position: relative;
+  padding: 0;
+  margin: 2rem 0 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.breadcrumb {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  opacity: 0.9;
+}
+
+.breadcrumb a {
+  font-size: 1.1rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.breadcrumb a:hover {
+  color: var(--accent);
+}
+
+.breadcrumb svg {
+  color: var(--accent);
+}
+
+.copy {
+  padding: 0.25rem 0.5rem;
+  background-color: var(--foreground);
+  color: var(--text);
+}
+
+.copy svg {
+  font-size: 1.5rem;
+}
+
 .title {
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   font-weight: 700;
-  margin: 1rem 0 2rem;
 }
 
 .hero {
@@ -66,30 +111,6 @@
   gap: 1rem;
 }
 
-.back {
-  display: block;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0.5rem 1rem;
-  background-color: var(--foreground);
-  color: var(--text);
-  border: solid 1px var(--border);
-  border-radius: 8px;
-  position: fixed;
-  bottom: 1rem;
-  right: 1rem;
-  font-size: 2em;
-  transition: all 0.2s ease-in;
-  cursor: pointer;
-}
-
-.back:hover {
-  background-color: var(--primary);
-  color: var(--light);
-  transform: translateY(-2px);
-}
-
 .separator {
   width: 100%;
   height: 1px;
@@ -100,6 +121,15 @@
 @media (min-width: 768px) {
   .hero {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .header {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .copy > span {
+    display: inline;
   }
 
   .title {

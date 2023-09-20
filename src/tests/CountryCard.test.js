@@ -2,7 +2,7 @@ import React from 'react';
 import { MemoryRouter as Router, useLocation } from 'react-router-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import CountryCard from '../components/CountryCard';
+import CountryCard from '../pages/Home/CountryCard';
 import sampleResponseData from './sampleResponseData';
 import { generateSlug } from '../lib/utils';
 

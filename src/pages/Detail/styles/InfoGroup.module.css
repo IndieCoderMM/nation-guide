@@ -19,6 +19,7 @@
 }
 
 .header > svg {
+  flex-shrink: 0;
   font-size: 1.8em;
   color: var(--accent);
 }

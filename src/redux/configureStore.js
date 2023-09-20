@@ -1,4 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import CountriesReducer from './countries';
+import CountriesReducer from './countriesSlice';
+import DisplaySettingsReducer from './displaySettingsSlice';
 
-export default configureStore({ reducer: CountriesReducer });
+export default configureStore({
+  reducer: {
+    countries: CountriesReducer,
+    displaySettings: DisplaySettingsReducer,
+  },
+});
