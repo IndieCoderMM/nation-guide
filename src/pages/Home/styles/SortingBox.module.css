@@ -1,8 +1,14 @@
 .container {
   background-color: var(--primary);
-  max-width: 300px;
-  min-width: 150px;
-  margin: 1rem 0;
+  flex-shrink: 0;
+  margin: 0;
+  border: none;
   border-radius: 8px;
   display: flex;
+}
+
+@media (min-width: 768px) {
+  .container {
+    min-width: 150px;
+  }
 }

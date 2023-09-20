@@ -12,6 +12,12 @@
 .title {
   font-family: var(--font-logo);
   font-weight: 300;
+  color: var(--text);
+  transition: all 0.2s ease-in-out;
+}
+
+.title:hover {
+  color: var(--accent);
 }
 
 .socials {
