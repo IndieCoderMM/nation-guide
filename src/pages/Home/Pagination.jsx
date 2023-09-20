@@ -1,17 +1,26 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { BiChevronLeft, BiChevronRight } from 'react-icons/bi';
+import {
+  BiChevronLeft,
+  BiChevronRight,
+  BiDotsHorizontalRounded,
+} from 'react-icons/bi';
 import PropTypes from 'prop-types';
 
 import {
   nextPage,
   prevPage,
   selectPage,
+  setPage,
 } from '../../redux/displaySettingsSlice';
 import styles from './styles/Pagination.module.css';
+import usePagination from '../../hooks/usePagination';
 
-const Pagination = ({ totalPage }) => {
+const Pagination = ({ total, limit }) => {
   const currentPage = useSelector(selectPage);
+  const totalPage = Math.ceil(total / limit);
+  const pagination = usePagination(totalPage, currentPage + 1, 1);
   const dispatch = useDispatch();
+
   return (
     <div className={styles.container}>
       <button
@@ -21,13 +30,25 @@ const Pagination = ({ totalPage }) => {
         onClick={() => dispatch(prevPage())}
         disabled={currentPage === 0}
       >
-        <BiChevronLeft size={48} />
+        <BiChevronLeft />
       </button>
-      <div className={styles.pageNumber}>
-        <span>{currentPage + 1}</span>
-        {/* eslint-disable-next-line */}
-        <span className={styles.smallText}>/{totalPage}</span>
-      </div>
+      <ul className={styles.range}>
+        {pagination.map((pageNo) => (
+          <li key={pageNo} className={styles.pageNumber}>
+            <button
+              type="button"
+              aria-label={`page ${pageNo}`}
+              className={`${styles.btn} ${
+                pageNo === currentPage + 1 ? styles.active : ''
+              }`}
+              onClick={() => dispatch(setPage(pageNo - 1))}
+              disabled={pageNo < 0}
+            >
+              {pageNo < 0 ? <BiDotsHorizontalRounded /> : pageNo}
+            </button>
+          </li>
+        ))}
+      </ul>
       <button
         type="button"
         aria-label="next"
@@ -35,14 +56,15 @@ const Pagination = ({ totalPage }) => {
         onClick={() => dispatch(nextPage())}
         disabled={currentPage === totalPage - 1}
       >
-        <BiChevronRight size={48} />
+        <BiChevronRight />
       </button>
     </div>
   );
 };
 
 Pagination.propTypes = {
-  totalPage: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
+  limit: PropTypes.number.isRequired,
 };
 
 export default Pagination;

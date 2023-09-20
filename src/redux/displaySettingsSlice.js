@@ -27,11 +27,15 @@ const displaySettingsSlice = createSlice({
       ...state,
       page: state.page - 1,
     }),
+    setPage: (state, action) => ({
+      ...state,
+      page: action.payload,
+    }),
   },
 });
 
 // eslint-disable-next-line
-export const { setQuery, setSorter, nextPage, prevPage } =
+export const { setQuery, setSorter, setPage, nextPage, prevPage } =
   displaySettingsSlice.actions;
 export const selectQuery = (state) => state.displaySettings.query;
 export const selectSorter = (state) => state.displaySettings.sorter;

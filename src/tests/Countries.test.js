@@ -5,7 +5,7 @@ import '@testing-library/jest-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from '../redux/configureStore';
-import Countries from '../components/Countries';
+import Countries from '../pages/Home/Countries';
 import sampleResponseData from './sampleResponseData';
 
 jest.mock('axios');

@@ -69,8 +69,6 @@ const Home = () => {
   const countriesToShow =
     query.trim().length > 0 ? selectedCountries : allCountries;
 
-  const totalPage = Math.ceil(sortedCountries.length / PER_PAGE);
-
   return (
     <main className="maxContainer">
       <div className="flexBetween">
@@ -82,7 +80,9 @@ const Home = () => {
       ) : (
         <>
           <Countries countries={countriesToShow} />
-          {!query && <Pagination totalPage={totalPage} />}
+          {!query && (
+            <Pagination total={sortedCountries.length} limit={PER_PAGE} />
+          )}
         </>
       )}
     </main>
