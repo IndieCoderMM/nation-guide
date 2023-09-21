@@ -1,5 +1,7 @@
 import { useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { FaArrowUp, FaMoon } from 'react-icons/fa';
+import { BsSunFill } from 'react-icons/bs';
 
 import PageHolder from '../../components/PageHolder';
 import Loading from '../../components/Loading';
@@ -16,11 +18,12 @@ import {
   selectSorter,
 } from '../../redux/displaySettingsSlice';
 
-import SearchBox from './SearchBox';
-import SortingBox from './SortingBox';
 import Countries from './Countries';
 import Pagination from './Pagination';
-import styles from './styles/Home.module.css';
+import ActionsBar from './ActionsBar';
+import FloatingActions from '../../components/FloatingActions';
+import useTheme from '../../hooks/useTheme';
+import useScroll from '../../hooks/useScroll';
 
 const PER_PAGE = 12;
 
@@ -33,6 +36,10 @@ const Home = () => {
   const status = useSelector(selectCountriesStatus);
   const dispatch = useDispatch();
 
+  const [theme, setTheme] = useTheme();
+  const scrollY = useScroll();
+
+  // Scroll to top on first render and on page change
   useEffect(() => window.scrollTo(0, 0), []);
   useEffect(() => window.scrollTo(0, 0), [page]);
 
@@ -40,6 +47,7 @@ const Home = () => {
     if (status === COUNTRIES_STATUS.IDLE) dispatch(getAllCountries());
   }, [status, dispatch]);
 
+  // Sort countries and filter them by query
   const sortedCountries = useMemo(
     () => sortCountries(sorter, data),
     [sorter, data],
@@ -61,8 +69,8 @@ const Home = () => {
   if (status === COUNTRIES_STATUS.ERROR) {
     return (
       <PageHolder
-        title="Something went wrong!"
-        message="There was an error while loading data. Please try again later."
+        title="Connection Timeout!"
+        message="We couldn't connect to the server. Please try again later."
       />
     );
   }
@@ -73,10 +81,7 @@ const Home = () => {
 
   return (
     <main className="maxContainer">
-      <div className={`${styles.sticky}`}>
-        <SearchBox />
-        <SortingBox />
-      </div>
+      <ActionsBar />
       {query && countriesToShow.length === 0 ? (
         <PageHolder title="No countries found!" message="Try another search." />
       ) : (
@@ -87,6 +92,23 @@ const Home = () => {
           )}
         </>
       )}
+      <FloatingActions
+        actions={[
+          // Check if user has scrolled down
+          {
+            label: 'Scroll to Top',
+            icon: <FaArrowUp />,
+            onClick: () => window.scrollTo(0, 0),
+            show: scrollY > 100,
+          },
+          {
+            label: 'Switch Theme',
+            icon: theme === 'dark' ? <FaMoon /> : <BsSunFill />,
+            onClick: () => setTheme(theme === 'dark' ? 'light' : 'dark'),
+            show: true,
+          },
+        ]}
+      />
     </main>
   );
 };

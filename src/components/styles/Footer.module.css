@@ -1,8 +1,10 @@
 .container {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
   gap: 1rem;
   border-top: solid 1px var(--border);
   margin: 2rem auto 1rem;
@@ -29,25 +31,43 @@
   font-size: 1.5rem;
 }
 
-.socials li {
+.socials > li {
   padding: 0.5rem;
   border-radius: 4px;
   transition: all 0.2s ease-in-out;
   color: var(--text);
 }
 
-.socials li a {
+.socials > li a {
   color: inherit;
 }
 
-.socials li:hover {
+.socials > li:hover {
   transform: scale(1.2);
   color: var(--accent);
 }
 
-@media (min-width: 1280px) {
+.container > p a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.container > p a:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 1200px) {
   .container {
     justify-content: space-between;
     flex-direction: row;
+  }
+
+  .socials {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }

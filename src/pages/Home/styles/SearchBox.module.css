@@ -2,15 +2,14 @@
   padding: 1rem 0.75rem;
   border-radius: 8px;
   background-color: var(--primary);
-  width: 100%;
-  max-width: 350px;
   display: flex;
   align-items: center;
+  width: 100%;
+  max-width: 350px;
   font-size: 1.5rem;
 }
 
 .input {
-  flex: 1;
   background: none;
   padding: 0 0.5rem;
   color: var(--text);

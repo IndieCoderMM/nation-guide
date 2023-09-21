@@ -8,12 +8,14 @@ import {
   BsInfoCircleFill,
   BsShareFill,
   BsClipboardCheck,
+  BsSunFill,
 } from 'react-icons/bs';
 import {
   FaArrowLeft,
   FaChartPie,
   FaChevronRight,
   FaLandmark,
+  FaMoon,
 } from 'react-icons/fa';
 
 import PageHolder from '../../components/PageHolder';
@@ -31,6 +33,7 @@ import styles from './styles/Detail.module.css';
 import Loading from '../../components/Loading';
 import useCopyToClipboard from '../../hooks/useCopyToClipboard';
 import FloatingActions from '../../components/FloatingActions';
+import useTheme from '../../hooks/useTheme';
 
 const Detail = () => {
   const { country_name: name } = useParams();
@@ -39,6 +42,7 @@ const Detail = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [copyToClipboard, hasCopied] = useCopyToClipboard();
+  const [theme, setTheme] = useTheme();
 
   const country = countries.find(
     // eslint-disable-next-line
@@ -161,11 +165,19 @@ const Detail = () => {
             label: hasCopied ? 'Copied!' : 'Share Link',
             icon: hasCopied ? <BsClipboardCheck /> : <BsShareFill />,
             onClick: () => copyToClipboard(window.location.href),
+            show: true,
+          },
+          {
+            label: 'Switch Theme',
+            icon: theme === 'dark' ? <FaMoon /> : <BsSunFill />,
+            onClick: () => setTheme(theme === 'dark' ? 'light' : 'dark'),
+            show: true,
           },
           {
             label: 'Go back',
             icon: <FaArrowLeft />,
             onClick: () => navigate('/'),
+            show: true,
           },
         ]}
       />

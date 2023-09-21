@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import { BsGithub } from 'react-icons/bs';
 
 import styles from './styles/Navbar.module.css';
-import ThemeSwitcher from './ThemeSwitcher';
 
 const Navbar = () => (
   <header className={styles.header}>
@@ -13,7 +12,6 @@ const Navbar = () => (
         </Link>
       </h1>
       <div className={styles.buttons}>
-        <ThemeSwitcher />
         <a
           href="https://github.com/indiecodermm/nation-guide"
           target="_blank"

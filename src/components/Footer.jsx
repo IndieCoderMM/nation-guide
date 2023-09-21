@@ -11,7 +11,7 @@ const Footer = () => (
           nationguide.
         </Link>
       </h2>
-      <p>Copyright &copy; 2023 All rights reserved.</p>
+
       <ul className={styles.socials}>
         {socialLinks.map((link) => (
           <li key={link.href}>
@@ -27,6 +27,18 @@ const Footer = () => (
           </li>
         ))}
       </ul>
+
+      <p>
+        Developed by&nbsp;
+        <a
+          href="https://github.com/IndieCoderMM"
+          target="_blank"
+          rel="noreferrer"
+        >
+          IndieCoderMM
+        </a>
+        &nbsp;&copy; 2023
+      </p>
     </div>
   </footer>
 );
