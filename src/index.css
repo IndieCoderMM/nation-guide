@@ -65,7 +65,8 @@ body::-webkit-scrollbar-thumb {
 .maxContainer {
   width: 100%;
   max-width: 1400px;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .flexBetween {
